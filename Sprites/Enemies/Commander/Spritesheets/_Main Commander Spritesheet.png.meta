@@ -1,0 +1,2145 @@
+fileFormatVersion: 2
+guid: cc61af67326f0624d84e70eda59c5a93
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6418171808112435389
+    second: _Main Commander Spritesheet_0
+  - first:
+      213: 7710808481706546277
+    second: _Main Commander Spritesheet_1
+  - first:
+      213: -3313543520273148738
+    second: _Main Commander Spritesheet_2
+  - first:
+      213: -8075542570803768608
+    second: _Main Commander Spritesheet_3
+  - first:
+      213: -384558603614326722
+    second: _Main Commander Spritesheet_4
+  - first:
+      213: -2515913434402888163
+    second: _Main Commander Spritesheet_5
+  - first:
+      213: 2865467617314687804
+    second: _Main Commander Spritesheet_6
+  - first:
+      213: 8684510201721782205
+    second: _Main Commander Spritesheet_7
+  - first:
+      213: 4912120012468834128
+    second: _Main Commander Spritesheet_8
+  - first:
+      213: -3415881405301145432
+    second: _Main Commander Spritesheet_9
+  - first:
+      213: 951251921067153148
+    second: _Main Commander Spritesheet_10
+  - first:
+      213: 2286950151338533705
+    second: _Main Commander Spritesheet_11
+  - first:
+      213: -4102977247771996413
+    second: _Main Commander Spritesheet_12
+  - first:
+      213: 2204070866167783558
+    second: _Main Commander Spritesheet_13
+  - first:
+      213: 7684255876449244456
+    second: _Main Commander Spritesheet_14
+  - first:
+      213: -7897086051380334286
+    second: _Main Commander Spritesheet_15
+  - first:
+      213: 2730348524561021635
+    second: _Main Commander Spritesheet_16
+  - first:
+      213: -6097345537410889730
+    second: _Main Commander Spritesheet_17
+  - first:
+      213: 1508397772848829523
+    second: _Main Commander Spritesheet_18
+  - first:
+      213: 1826352388435529702
+    second: _Main Commander Spritesheet_19
+  - first:
+      213: -2820647476324607960
+    second: _Main Commander Spritesheet_20
+  - first:
+      213: -5412959635641037442
+    second: _Main Commander Spritesheet_21
+  - first:
+      213: 5812614612473870758
+    second: _Main Commander Spritesheet_22
+  - first:
+      213: 2692403650969672287
+    second: _Main Commander Spritesheet_23
+  - first:
+      213: -4607272824080536383
+    second: _Main Commander Spritesheet_24
+  - first:
+      213: 1599183672848060763
+    second: _Main Commander Spritesheet_25
+  - first:
+      213: 2153413961910905588
+    second: _Main Commander Spritesheet_26
+  - first:
+      213: 7592574143464838426
+    second: _Main Commander Spritesheet_27
+  - first:
+      213: -3129300514417637753
+    second: _Main Commander Spritesheet_28
+  - first:
+      213: 5370568543713247326
+    second: _Main Commander Spritesheet_29
+  - first:
+      213: -2012943145971448407
+    second: _Main Commander Spritesheet_30
+  - first:
+      213: -2334541472657960475
+    second: _Main Commander Spritesheet_31
+  - first:
+      213: -8193903953988126720
+    second: _Main Commander Spritesheet_32
+  - first:
+      213: -4023041025756090839
+    second: _Main Commander Spritesheet_33
+  - first:
+      213: -6482162514522817840
+    second: _Main Commander Spritesheet_34
+  - first:
+      213: -3794371282231690475
+    second: _Main Commander Spritesheet_35
+  - first:
+      213: 5977698813190905054
+    second: _Main Commander Spritesheet_36
+  - first:
+      213: 8571444343785963750
+    second: _Main Commander Spritesheet_37
+  - first:
+      213: 6572292093993473520
+    second: _Main Commander Spritesheet_38
+  - first:
+      213: -477394835746758217
+    second: _Main Commander Spritesheet_39
+  - first:
+      213: -7310750828495820651
+    second: _Main Commander Spritesheet_40
+  - first:
+      213: -2193905479196743804
+    second: _Main Commander Spritesheet_41
+  - first:
+      213: -2375561586879084417
+    second: _Main Commander Spritesheet_42
+  - first:
+      213: -4060829899954324538
+    second: _Main Commander Spritesheet_43
+  - first:
+      213: 6487096503803677229
+    second: _Main Commander Spritesheet_44
+  - first:
+      213: -91441844883897645
+    second: _Main Commander Spritesheet_45
+  - first:
+      213: 2925298866320471053
+    second: _Main Commander Spritesheet_46
+  - first:
+      213: -8359309237938349560
+    second: _Main Commander Spritesheet_47
+  - first:
+      213: 1545290237265718596
+    second: _Main Commander Spritesheet_48
+  - first:
+      213: -1806855570898161288
+    second: _Main Commander Spritesheet_49
+  - first:
+      213: 2756020744430352837
+    second: _Main Commander Spritesheet_50
+  - first:
+      213: -644238764602784699
+    second: _Main Commander Spritesheet_51
+  - first:
+      213: 6068600925270484931
+    second: _Main Commander Spritesheet_52
+  - first:
+      213: -2182350068096474681
+    second: _Main Commander Spritesheet_53
+  - first:
+      213: 2396578145328179188
+    second: _Main Commander Spritesheet_54
+  - first:
+      213: -1228353807954766349
+    second: _Main Commander Spritesheet_55
+  - first:
+      213: -386537245608538056
+    second: _Main Commander Spritesheet_56
+  - first:
+      213: -1702391831378913595
+    second: _Main Commander Spritesheet_57
+  - first:
+      213: -8405587522053610454
+    second: _Main Commander Spritesheet_58
+  - first:
+      213: 320197386252455388
+    second: _Main Commander Spritesheet_59
+  - first:
+      213: 6783283927650769113
+    second: _Main Commander Spritesheet_60
+  - first:
+      213: 1839580139524646791
+    second: _Main Commander Spritesheet_61
+  - first:
+      213: 4858562863505483694
+    second: _Main Commander Spritesheet_62
+  - first:
+      213: -1083937586750040174
+    second: _Main Commander Spritesheet_63
+  - first:
+      213: -6014777773635763278
+    second: _Main Commander Spritesheet_64
+  - first:
+      213: -1247069136480769130
+    second: _Main Commander Spritesheet_65
+  - first:
+      213: 1925689226094004393
+    second: _Main Commander Spritesheet_66
+  - first:
+      213: 6182288293928486168
+    second: _Main Commander Spritesheet_67
+  - first:
+      213: -8803175625364213696
+    second: _Main Commander Spritesheet_68
+  - first:
+      213: 3116693632789890463
+    second: _Main Commander Spritesheet_69
+  - first:
+      213: 8231231731458680764
+    second: _Main Commander Spritesheet_70
+  - first:
+      213: -3744764752685349022
+    second: _Main Commander Spritesheet_71
+  - first:
+      213: -206186659920827500
+    second: _Main Commander Spritesheet_72
+  - first:
+      213: -3398908318921283154
+    second: _Main Commander Spritesheet_73
+  - first:
+      213: -5244786662216952505
+    second: _Main Commander Spritesheet_74
+  - first:
+      213: -969625689296312119
+    second: _Main Commander Spritesheet_75
+  - first:
+      213: -1959386931926679203
+    second: _Main Commander Spritesheet_76
+  - first:
+      213: -7783157207713708719
+    second: _Main Commander Spritesheet_77
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 957
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f1806deb21ee6a0800000000000000
+      internalID: -6418171808112435389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 957
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5641033e57b420b60800000000000000
+      internalID: 7710808481706546277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 957
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb4525669bde302d0800000000000000
+      internalID: -3313543520273148738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 957
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e252b261d8edef80800000000000000
+      internalID: -8075542570803768608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 957
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e307f3cccf5c9aaf0800000000000000
+      internalID: -384558603614326722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 957
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1668c0bf0ea51dd0800000000000000
+      internalID: -2515913434402888163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 861
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b4d65bd9f24c720800000000000000
+      internalID: 2865467617314687804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 861
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbff1e51404958870800000000000000
+      internalID: 8684510201721782205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 861
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05fca45302b5b2440800000000000000
+      internalID: 4912120012468834128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 861
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a0c922c5f95890d0800000000000000
+      internalID: -3415881405301145432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 861
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf69d1f0596833d00800000000000000
+      internalID: 951251921067153148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 861
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9432f8dbb01ecbf10800000000000000
+      internalID: 2286950151338533705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 861
+        width: 46
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f4a018eeb4f07c0800000000000000
+      internalID: -4102977247771996413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 861
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 680e7bd66ce669e10800000000000000
+      internalID: 2204070866167783558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 765
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82517f6b106f3aa60800000000000000
+      internalID: 7684255876449244456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 765
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23178caa31ae76290800000000000000
+      internalID: -7897086051380334286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 765
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cab87f548524e520800000000000000
+      internalID: 2730348524561021635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 778
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef78fc1f980e16ba0800000000000000
+      internalID: -6097345537410889730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 779
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35415a658c7eee410800000000000000
+      internalID: 1508397772848829523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 773
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6efc26322d1885910800000000000000
+      internalID: 1826352388435529702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 765
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828d111901c0bd8d0800000000000000
+      internalID: -2820647476324607960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 669
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d8616f3ed41e4b0800000000000000
+      internalID: -5412959635641037442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 669
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9ffb8813e8aa050800000000000000
+      internalID: 5812614612473870758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 669
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a13080bd65d5520800000000000000
+      internalID: 2692403650969672287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 669
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc6e51e6cdaf00c0800000000000000
+      internalID: -4607272824080536383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 669
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5196bed311713610800000000000000
+      internalID: 1599183672848060763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 669
+        width: 50
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fae01ec69672ed10800000000000000
+      internalID: 2153413961910905588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 669
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a159900d4fd3e5960800000000000000
+      internalID: 7592574143464838426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 669
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78680ba03cd7294d0800000000000000
+      internalID: -3129300514417637753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 669
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e504ae1d2a7188a40800000000000000
+      internalID: 5370568543713247326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 669
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5805fafd69014e0800000000000000
+      internalID: -2012943145971448407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 669
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e11ec846ea0a9fd0800000000000000
+      internalID: -2334541472657960475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 573
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0087eda54c7694e80800000000000000
+      internalID: -8193903953988126720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 573
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e2cf680894b28c0800000000000000
+      internalID: -4023041025756090839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 573
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dab389798bba06a0800000000000000
+      internalID: -6482162514522817840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 573
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51bf2a81c6fa75bc0800000000000000
+      internalID: -3794371282231690475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 573
+        width: 46
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edc948e366d05f250800000000000000
+      internalID: 5977698813190905054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 573
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e0c46b9733e3f670800000000000000
+      internalID: 8571444343785963750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 573
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f5d69686d8753b50800000000000000
+      internalID: 6572292093993473520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 573
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b165bd1de3ff59f0800000000000000
+      internalID: -477394835746758217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 591
+        width: 22
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5982d120bdefa8a90800000000000000
+      internalID: -7310750828495820651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 573
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487e1b9279ead81e0800000000000000
+      internalID: -2193905479196743804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 573
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f784200b25f480fd0800000000000000
+      internalID: -2375561586879084417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbffef98b805a7c0800000000000000
+      internalID: -4060829899954324538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a85ec66ebc60a50800000000000000
+      internalID: 6487096503803677229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2c61660222bbef0800000000000000
+      internalID: -91441844883897645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0472ece1dfb89820800000000000000
+      internalID: 2925298866320471053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a1b01a984cdfb80800000000000000
+      internalID: -8359309237938349560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d2a139849f17510800000000000000
+      internalID: 1545290237265718596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871fd207e62cce6e0800000000000000
+      internalID: -1806855570898161288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9f069d34a5f3620800000000000000
+      internalID: 2756020744430352837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5448055c1443f07f0800000000000000
+      internalID: -644238764602784699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7aa528360083450800000000000000
+      internalID: 6068600925270484931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c16f87fc2cb6b1e0800000000000000
+      internalID: -2182350068096474681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f720c4202b524120800000000000000
+      internalID: 2396578145328179188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f59b5248b204fee0800000000000000
+      internalID: -1228353807954766349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 477
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8309b0f4c6eb2aaf0800000000000000
+      internalID: -386537245608538056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 477
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c6122626a3ef58e0800000000000000
+      internalID: -1702391831378913595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 477
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a24e983feaa595b80800000000000000
+      internalID: -8405587522053610454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd069983d1917400800000000000000
+      internalID: 320197386252455388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 495
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d89d36fac0132e50800000000000000
+      internalID: 6783283927650769113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 787ea30f360878910800000000000000
+      internalID: 1839580139524646791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 477
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7262ebe251d6340800000000000000
+      internalID: 4858562863505483694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 1859
+        y: 477
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297d11ff18415f0f0800000000000000
+      internalID: -1083937586750040174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 381
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b386878b77378ca0800000000000000
+      internalID: -6014777773635763278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 382
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69be5b54a3581bee0800000000000000
+      internalID: -1247069136480769130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 383
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a8412df52c69ba10800000000000000
+      internalID: 1925689226094004393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 384
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 815c9aab276ebc550800000000000000
+      internalID: 6182288293928486168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 285
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040f9c2f866d4d580800000000000000
+      internalID: -8803175625364213696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 286
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f95c9289858b04b20800000000000000
+      internalID: 3116693632789890463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 287
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7a48916a53b3270800000000000000
+      internalID: 8231231731458680764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 288
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26749cc4c4ce70cc0800000000000000
+      internalID: -3744764752685349022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 283
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49baef1435a732df0800000000000000
+      internalID: -206186659920827500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 283
+        width: 37
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9a39264e6a4d0d0800000000000000
+      internalID: -3398908318921283154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 283
+        width: 37
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7451adb9156c637b0800000000000000
+      internalID: -5244786662216952505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 283
+        width: 37
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c86668a2923b82f0800000000000000
+      internalID: -969625689296312119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 283
+        width: 37
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d51c7f877fbdec4e0800000000000000
+      internalID: -1959386931926679203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Commander Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 283
+        width: 37
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155043ba1cbacf390800000000000000
+      internalID: -7783157207713708719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      _Main Commander Spritesheet_0: -6418171808112435389
+      _Main Commander Spritesheet_1: 7710808481706546277
+      _Main Commander Spritesheet_10: 951251921067153148
+      _Main Commander Spritesheet_11: 2286950151338533705
+      _Main Commander Spritesheet_12: -4102977247771996413
+      _Main Commander Spritesheet_13: 2204070866167783558
+      _Main Commander Spritesheet_14: 7684255876449244456
+      _Main Commander Spritesheet_15: -7897086051380334286
+      _Main Commander Spritesheet_16: 2730348524561021635
+      _Main Commander Spritesheet_17: -6097345537410889730
+      _Main Commander Spritesheet_18: 1508397772848829523
+      _Main Commander Spritesheet_19: 1826352388435529702
+      _Main Commander Spritesheet_2: -3313543520273148738
+      _Main Commander Spritesheet_20: -2820647476324607960
+      _Main Commander Spritesheet_21: -5412959635641037442
+      _Main Commander Spritesheet_22: 5812614612473870758
+      _Main Commander Spritesheet_23: 2692403650969672287
+      _Main Commander Spritesheet_24: -4607272824080536383
+      _Main Commander Spritesheet_25: 1599183672848060763
+      _Main Commander Spritesheet_26: 2153413961910905588
+      _Main Commander Spritesheet_27: 7592574143464838426
+      _Main Commander Spritesheet_28: -3129300514417637753
+      _Main Commander Spritesheet_29: 5370568543713247326
+      _Main Commander Spritesheet_3: -8075542570803768608
+      _Main Commander Spritesheet_30: -2012943145971448407
+      _Main Commander Spritesheet_31: -2334541472657960475
+      _Main Commander Spritesheet_32: -8193903953988126720
+      _Main Commander Spritesheet_33: -4023041025756090839
+      _Main Commander Spritesheet_34: -6482162514522817840
+      _Main Commander Spritesheet_35: -3794371282231690475
+      _Main Commander Spritesheet_36: 5977698813190905054
+      _Main Commander Spritesheet_37: 8571444343785963750
+      _Main Commander Spritesheet_38: 6572292093993473520
+      _Main Commander Spritesheet_39: -477394835746758217
+      _Main Commander Spritesheet_4: -384558603614326722
+      _Main Commander Spritesheet_40: -7310750828495820651
+      _Main Commander Spritesheet_41: -2193905479196743804
+      _Main Commander Spritesheet_42: -2375561586879084417
+      _Main Commander Spritesheet_43: -4060829899954324538
+      _Main Commander Spritesheet_44: 6487096503803677229
+      _Main Commander Spritesheet_45: -91441844883897645
+      _Main Commander Spritesheet_46: 2925298866320471053
+      _Main Commander Spritesheet_47: -8359309237938349560
+      _Main Commander Spritesheet_48: 1545290237265718596
+      _Main Commander Spritesheet_49: -1806855570898161288
+      _Main Commander Spritesheet_5: -2515913434402888163
+      _Main Commander Spritesheet_50: 2756020744430352837
+      _Main Commander Spritesheet_51: -644238764602784699
+      _Main Commander Spritesheet_52: 6068600925270484931
+      _Main Commander Spritesheet_53: -2182350068096474681
+      _Main Commander Spritesheet_54: 2396578145328179188
+      _Main Commander Spritesheet_55: -1228353807954766349
+      _Main Commander Spritesheet_56: -386537245608538056
+      _Main Commander Spritesheet_57: -1702391831378913595
+      _Main Commander Spritesheet_58: -8405587522053610454
+      _Main Commander Spritesheet_59: 320197386252455388
+      _Main Commander Spritesheet_6: 2865467617314687804
+      _Main Commander Spritesheet_60: 6783283927650769113
+      _Main Commander Spritesheet_61: 1839580139524646791
+      _Main Commander Spritesheet_62: 4858562863505483694
+      _Main Commander Spritesheet_63: -1083937586750040174
+      _Main Commander Spritesheet_64: -6014777773635763278
+      _Main Commander Spritesheet_65: -1247069136480769130
+      _Main Commander Spritesheet_66: 1925689226094004393
+      _Main Commander Spritesheet_67: 6182288293928486168
+      _Main Commander Spritesheet_68: -8803175625364213696
+      _Main Commander Spritesheet_69: 3116693632789890463
+      _Main Commander Spritesheet_7: 8684510201721782205
+      _Main Commander Spritesheet_70: 8231231731458680764
+      _Main Commander Spritesheet_71: -3744764752685349022
+      _Main Commander Spritesheet_72: -206186659920827500
+      _Main Commander Spritesheet_73: -3398908318921283154
+      _Main Commander Spritesheet_74: -5244786662216952505
+      _Main Commander Spritesheet_75: -969625689296312119
+      _Main Commander Spritesheet_76: -1959386931926679203
+      _Main Commander Spritesheet_77: -7783157207713708719
+      _Main Commander Spritesheet_8: 4912120012468834128
+      _Main Commander Spritesheet_9: -3415881405301145432
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

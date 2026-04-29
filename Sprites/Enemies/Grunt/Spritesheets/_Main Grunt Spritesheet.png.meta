@@ -1,0 +1,1391 @@
+fileFormatVersion: 2
+guid: 44fe4a5fc9452af41b79f59f93dcb77f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6132183417978169402
+    second: _Main Grunt Spritesheet_0
+  - first:
+      213: 4548838935588898647
+    second: _Main Grunt Spritesheet_1
+  - first:
+      213: -2285495788472505924
+    second: _Main Grunt Spritesheet_2
+  - first:
+      213: -4654567571622810269
+    second: _Main Grunt Spritesheet_3
+  - first:
+      213: -5039378563469394482
+    second: _Main Grunt Spritesheet_4
+  - first:
+      213: 302226414254716612
+    second: _Main Grunt Spritesheet_5
+  - first:
+      213: 9195090202540175457
+    second: _Main Grunt Spritesheet_6
+  - first:
+      213: -5691269199703821540
+    second: _Main Grunt Spritesheet_7
+  - first:
+      213: -268880585220244260
+    second: _Main Grunt Spritesheet_8
+  - first:
+      213: 1860722980073636012
+    second: _Main Grunt Spritesheet_9
+  - first:
+      213: -3878075025639985640
+    second: _Main Grunt Spritesheet_10
+  - first:
+      213: -4822834020192000745
+    second: _Main Grunt Spritesheet_11
+  - first:
+      213: -3160960905110070505
+    second: _Main Grunt Spritesheet_12
+  - first:
+      213: -3030232642378847260
+    second: _Main Grunt Spritesheet_13
+  - first:
+      213: 5565350405106141739
+    second: _Main Grunt Spritesheet_14
+  - first:
+      213: 817989336080527535
+    second: _Main Grunt Spritesheet_15
+  - first:
+      213: 4034749702223701656
+    second: _Main Grunt Spritesheet_16
+  - first:
+      213: 7374389066588152074
+    second: _Main Grunt Spritesheet_17
+  - first:
+      213: -7958058797006570475
+    second: _Main Grunt Spritesheet_18
+  - first:
+      213: -938492447371360925
+    second: _Main Grunt Spritesheet_19
+  - first:
+      213: 5974585560115973306
+    second: _Main Grunt Spritesheet_20
+  - first:
+      213: -3518486434965867474
+    second: _Main Grunt Spritesheet_21
+  - first:
+      213: 8925166796712339455
+    second: _Main Grunt Spritesheet_22
+  - first:
+      213: -3271435085238624274
+    second: _Main Grunt Spritesheet_23
+  - first:
+      213: 7647040297627077542
+    second: _Main Grunt Spritesheet_24
+  - first:
+      213: -956503088310583463
+    second: _Main Grunt Spritesheet_25
+  - first:
+      213: 7651875555005149893
+    second: _Main Grunt Spritesheet_26
+  - first:
+      213: -5723551905579339357
+    second: _Main Grunt Spritesheet_27
+  - first:
+      213: 4064808165822333456
+    second: _Main Grunt Spritesheet_28
+  - first:
+      213: 7280518638891196044
+    second: _Main Grunt Spritesheet_29
+  - first:
+      213: 4802223111408584488
+    second: _Main Grunt Spritesheet_30
+  - first:
+      213: 3378825471507213019
+    second: _Main Grunt Spritesheet_31
+  - first:
+      213: 6204649808096631402
+    second: _Main Grunt Spritesheet_32
+  - first:
+      213: 4733357598217520016
+    second: _Main Grunt Spritesheet_33
+  - first:
+      213: -7165476929935815117
+    second: _Main Grunt Spritesheet_34
+  - first:
+      213: -5841741283459289547
+    second: _Main Grunt Spritesheet_35
+  - first:
+      213: 3763306240186074171
+    second: _Main Grunt Spritesheet_36
+  - first:
+      213: 83138997950513089
+    second: _Main Grunt Spritesheet_37
+  - first:
+      213: 2395189889217701582
+    second: _Main Grunt Spritesheet_38
+  - first:
+      213: -4017345950068941121
+    second: _Main Grunt Spritesheet_39
+  - first:
+      213: 4316782183268944627
+    second: _Main Grunt Spritesheet_40
+  - first:
+      213: -3730971784145568554
+    second: _Main Grunt Spritesheet_41
+  - first:
+      213: 6126945158250230739
+    second: _Main Grunt Spritesheet_42
+  - first:
+      213: 2781103808978439034
+    second: _Main Grunt Spritesheet_43
+  - first:
+      213: 2284946618754787974
+    second: _Main Grunt Spritesheet_44
+  - first:
+      213: 4462360523860362966
+    second: _Main Grunt Spritesheet_45
+  - first:
+      213: 2327083990742874730
+    second: _Main Grunt Spritesheet_46
+  - first:
+      213: 2057055322955895731
+    second: _Main Grunt Spritesheet_47
+  - first:
+      213: 3841912403092843507
+    second: _Main Grunt Spritesheet_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 397
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3821263454e91550800000000000000
+      internalID: 6132183417978169402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 397
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7570e3049e8b02f30800000000000000
+      internalID: 4548838935588898647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 397
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9e17080b94840e0800000000000000
+      internalID: -2285495788472505924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 397
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36dae5e5477a76fb0800000000000000
+      internalID: -4654567571622810269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 397
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd30b375e7801ab0800000000000000
+      internalID: -5039378563469394482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 397
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c6746f8259b13400800000000000000
+      internalID: 302226414254716612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 397
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160f41052d58b9f70800000000000000
+      internalID: 9195090202540175457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 397
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13388601dc8401b0800000000000000
+      internalID: -5691269199703821540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 333
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdcb2f6488eb44cf0800000000000000
+      internalID: -268880585220244260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 333
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca002bc11bd92d910800000000000000
+      internalID: 1860722980073636012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 334
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81e2a64af4f4e2ac0800000000000000
+      internalID: -3878075025639985640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 333
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71569c7d20ad11db0800000000000000
+      internalID: -4822834020192000745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 333
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b5406edc20224d0800000000000000
+      internalID: -3160960905110070505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 333
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb2734777372f5d0800000000000000
+      internalID: -3030232642378847260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 335
+        width: 45
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a8deaf4b81c3d40800000000000000
+      internalID: 5565350405106141739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 333
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0332f97f41a5b00800000000000000
+      internalID: 817989336080527535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 269
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89628a62a7f4ef730800000000000000
+      internalID: 4034749702223701656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 269
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01e28de8c7175660800000000000000
+      internalID: 7374389066588152074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 277
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51c30ce00bb4f8190800000000000000
+      internalID: -7958058797006570475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 278
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3650b0a671ec9f2f0800000000000000
+      internalID: -938492447371360925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 276
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abc04e689edf9e250800000000000000
+      internalID: 5974585560115973306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 269
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2434d8aa33db2fc0800000000000000
+      internalID: -3518486434965867474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 205
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff7662ff9ef8cdb70800000000000000
+      internalID: 8925166796712339455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 205
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eef1a9e6f178992d0800000000000000
+      internalID: -3271435085238624274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 205
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abc82b82aebf1a60800000000000000
+      internalID: 7647040297627077542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 205
+        width: 43
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ffeaa4281d9b2f0800000000000000
+      internalID: -956503088310583463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 205
+        width: 43
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c2b391a64ce03a60800000000000000
+      internalID: 7651875555005149893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 205
+        width: 43
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1fe66dddbd190b0800000000000000
+      internalID: -5723551905579339357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 205
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01282f39d79196830800000000000000
+      internalID: 4064808165822333456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 205
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8e58b3d029990560800000000000000
+      internalID: 7280518638891196044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 141
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8270eaff97ce4a240800000000000000
+      internalID: 4802223111408584488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 141
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdaaa335ddff3ee20800000000000000
+      internalID: 3378825471507213019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 141
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a9b4770285b1650800000000000000
+      internalID: 6204649808096631402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 141
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093c6ac38a340b140800000000000000
+      internalID: 4733357598217520016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 141
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e4be052bc1f8c90800000000000000
+      internalID: -7165476929935815117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 77
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53eaca9e047fdeea0800000000000000
+      internalID: -5841741283459289547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 78
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b344d4b2613f93430800000000000000
+      internalID: 3763306240186074171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 79
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf72d76a7e572100800000000000000
+      internalID: 83138997950513089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 80
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6ad64938c6d3120800000000000000
+      internalID: 2395189889217701582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 13
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe594aa4258f38c0800000000000000
+      internalID: -4017345950068941121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 14
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa0b7e368a48eb30800000000000000
+      internalID: 4316782183268944627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 15
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc7ffa0eece83cc0800000000000000
+      internalID: -3730971784145568554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 16
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3fdc3d828470550800000000000000
+      internalID: 6126945158250230739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 12
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7b45a9ed27789620800000000000000
+      internalID: 2781103808978439034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 12
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68aeb95f7d2c5bf10800000000000000
+      internalID: 2284946618754787974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 12
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d64c6cf04d7ded30800000000000000
+      internalID: 4462360523860362966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 12
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a3ab66f867b4020800000000000000
+      internalID: 2327083990742874730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 12
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b3dc10eae02c8c10800000000000000
+      internalID: 2057055322955895731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Main Grunt Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 12
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb248ca9f6315530800000000000000
+      internalID: 3841912403092843507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      _Main Grunt Spritesheet_0: 6132183417978169402
+      _Main Grunt Spritesheet_1: 4548838935588898647
+      _Main Grunt Spritesheet_10: -3878075025639985640
+      _Main Grunt Spritesheet_11: -4822834020192000745
+      _Main Grunt Spritesheet_12: -3160960905110070505
+      _Main Grunt Spritesheet_13: -3030232642378847260
+      _Main Grunt Spritesheet_14: 5565350405106141739
+      _Main Grunt Spritesheet_15: 817989336080527535
+      _Main Grunt Spritesheet_16: 4034749702223701656
+      _Main Grunt Spritesheet_17: 7374389066588152074
+      _Main Grunt Spritesheet_18: -7958058797006570475
+      _Main Grunt Spritesheet_19: -938492447371360925
+      _Main Grunt Spritesheet_2: -2285495788472505924
+      _Main Grunt Spritesheet_20: 5974585560115973306
+      _Main Grunt Spritesheet_21: -3518486434965867474
+      _Main Grunt Spritesheet_22: 8925166796712339455
+      _Main Grunt Spritesheet_23: -3271435085238624274
+      _Main Grunt Spritesheet_24: 7647040297627077542
+      _Main Grunt Spritesheet_25: -956503088310583463
+      _Main Grunt Spritesheet_26: 7651875555005149893
+      _Main Grunt Spritesheet_27: -5723551905579339357
+      _Main Grunt Spritesheet_28: 4064808165822333456
+      _Main Grunt Spritesheet_29: 7280518638891196044
+      _Main Grunt Spritesheet_3: -4654567571622810269
+      _Main Grunt Spritesheet_30: 4802223111408584488
+      _Main Grunt Spritesheet_31: 3378825471507213019
+      _Main Grunt Spritesheet_32: 6204649808096631402
+      _Main Grunt Spritesheet_33: 4733357598217520016
+      _Main Grunt Spritesheet_34: -7165476929935815117
+      _Main Grunt Spritesheet_35: -5841741283459289547
+      _Main Grunt Spritesheet_36: 3763306240186074171
+      _Main Grunt Spritesheet_37: 83138997950513089
+      _Main Grunt Spritesheet_38: 2395189889217701582
+      _Main Grunt Spritesheet_39: -4017345950068941121
+      _Main Grunt Spritesheet_4: -5039378563469394482
+      _Main Grunt Spritesheet_40: 4316782183268944627
+      _Main Grunt Spritesheet_41: -3730971784145568554
+      _Main Grunt Spritesheet_42: 6126945158250230739
+      _Main Grunt Spritesheet_43: 2781103808978439034
+      _Main Grunt Spritesheet_44: 2284946618754787974
+      _Main Grunt Spritesheet_45: 4462360523860362966
+      _Main Grunt Spritesheet_46: 2327083990742874730
+      _Main Grunt Spritesheet_47: 2057055322955895731
+      _Main Grunt Spritesheet_48: 3841912403092843507
+      _Main Grunt Spritesheet_5: 302226414254716612
+      _Main Grunt Spritesheet_6: 9195090202540175457
+      _Main Grunt Spritesheet_7: -5691269199703821540
+      _Main Grunt Spritesheet_8: -268880585220244260
+      _Main Grunt Spritesheet_9: 1860722980073636012
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

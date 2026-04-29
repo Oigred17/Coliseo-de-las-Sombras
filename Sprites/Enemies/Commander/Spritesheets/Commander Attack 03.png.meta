@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: f90cac0e6391ac249b5c440d462f7422
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4359349201758993366
+    second: Commander Attack 03_0
+  - first:
+      213: 698246382749722474
+    second: Commander Attack 03_1
+  - first:
+      213: 8314684666008986275
+    second: Commander Attack 03_2
+  - first:
+      213: -4063270216129191971
+    second: Commander Attack 03_3
+  - first:
+      213: -1762597529908172126
+    second: Commander Attack 03_4
+  - first:
+      213: 582399767770909524
+    second: Commander Attack 03_5
+  - first:
+      213: 5892462739759302291
+    second: Commander Attack 03_6
+  - first:
+      213: 5641287379366439072
+    second: Commander Attack 03_7
+  - first:
+      213: -5153921406237678802
+    second: Commander Attack 03_8
+  - first:
+      213: 3727825683468130071
+    second: Commander Attack 03_9
+  - first:
+      213: -5455237431003922856
+    second: Commander Attack 03_10
+  - first:
+      213: -367205944072935898
+    second: Commander Attack 03_11
+  - first:
+      213: -6221434017020030820
+    second: Commander Attack 03_12
+  - first:
+      213: 1078116155035782663
+    second: Commander Attack 03_13
+  - first:
+      213: -67484056668774527
+    second: Commander Attack 03_14
+  - first:
+      213: 686101659563461336
+    second: Commander Attack 03_15
+  - first:
+      213: -7292620024399456334
+    second: Commander Attack 03_16
+  - first:
+      213: -1239235625770056142
+    second: Commander Attack 03_17
+  - first:
+      213: 2227983751171347562
+    second: Commander Attack 03_18
+  - first:
+      213: -3624287122585479601
+    second: Commander Attack 03_19
+  - first:
+      213: -4192680969392117558
+    second: Commander Attack 03_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Commander Attack 03_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db3abe80058f7c30800000000000000
+      internalID: 4359349201758993366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a67af79b26ba0b900800000000000000
+      internalID: 698246382749722474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a26ad096a1b36370800000000000000
+      internalID: 8314684666008986275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfd13d344d5c97c0800000000000000
+      internalID: -4063270216129191971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_4
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aaa7db92eef987e0800000000000000
+      internalID: -1762597529908172126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_5
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b414bc089151800800000000000000
+      internalID: 582399767770909524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_6
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 396049764ab36c150800000000000000
+      internalID: 5892462739759302291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_7
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8e7039bf0e94e40800000000000000
+      internalID: 5641287379366439072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_8
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e23ebe4a9c79978b0800000000000000
+      internalID: -5153921406237678802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_9
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71712bf45b5ebb330800000000000000
+      internalID: 3727825683468130071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_10
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85eb897a57a1b44b0800000000000000
+      internalID: -5455237431003922856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_11
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626ee10b32c67eaf0800000000000000
+      internalID: -367205944072935898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_12
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c905dfd59b609a9a0800000000000000
+      internalID: -6221434017020030820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_13
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 29
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e848f4eec36fe00800000000000000
+      internalID: 1078116155035782663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_14
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 29
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f5146ab9f301ff0800000000000000
+      internalID: -67484056668774527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_15
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 29
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da061203d5858900800000000000000
+      internalID: 686101659563461336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_16
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b715cbc9b86bca90800000000000000
+      internalID: -7292620024399456334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_17
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 47
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23687fc93c95dcee0800000000000000
+      internalID: -1239235625770056142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_18
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6419e5da636bee10800000000000000
+      internalID: 2227983751171347562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_19
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 29
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4615467012f3bdc0800000000000000
+      internalID: -3624287122585479601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Commander Attack 03_20
+      rect:
+        serializedVersion: 2
+        x: 1859
+        y: 29
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8a7d24fda90d5c0800000000000000
+      internalID: -4192680969392117558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Commander Attack 03_0: 4359349201758993366
+      Commander Attack 03_1: 698246382749722474
+      Commander Attack 03_10: -5455237431003922856
+      Commander Attack 03_11: -367205944072935898
+      Commander Attack 03_12: -6221434017020030820
+      Commander Attack 03_13: 1078116155035782663
+      Commander Attack 03_14: -67484056668774527
+      Commander Attack 03_15: 686101659563461336
+      Commander Attack 03_16: -7292620024399456334
+      Commander Attack 03_17: -1239235625770056142
+      Commander Attack 03_18: 2227983751171347562
+      Commander Attack 03_19: -3624287122585479601
+      Commander Attack 03_2: 8314684666008986275
+      Commander Attack 03_20: -4192680969392117558
+      Commander Attack 03_3: -4063270216129191971
+      Commander Attack 03_4: -1762597529908172126
+      Commander Attack 03_5: 582399767770909524
+      Commander Attack 03_6: 5892462739759302291
+      Commander Attack 03_7: 5641287379366439072
+      Commander Attack 03_8: -5153921406237678802
+      Commander Attack 03_9: 3727825683468130071
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
