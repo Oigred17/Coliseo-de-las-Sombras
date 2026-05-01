@@ -5,11 +5,7 @@ from settings import SPRITES_DIR
 
 
 def load_spritesheet(path, frame_width, frame_height, num_frames, scale=1, flip=False):
-    """Carga un spritesheet horizontal y devuelve lista de frames.
-    
-    Calcula automáticamente los frames dividiendo el ancho total
-    entre frame_width si num_frames es 0.
-    """
+    """Carga un spritesheet y devuelve lista de frames (soporta múltiples filas)."""
     full = os.path.join(SPRITES_DIR, path)
     try:
         sheet = pygame.image.load(full).convert_alpha()
@@ -19,21 +15,23 @@ def load_spritesheet(path, frame_width, frame_height, num_frames, scale=1, flip=
         surf.fill((255, 0, 255, 180))
         return [surf]
 
-    # Auto-detectar número de frames si es 0
+    cols = sheet.get_width() // frame_width
+    rows = sheet.get_height() // frame_height
+    total_avail = cols * rows
+    
     if num_frames <= 0:
-        num_frames = max(1, sheet.get_width() // frame_width)
+        num_frames = total_avail
 
     frames = []
     for i in range(num_frames):
-        x = i * frame_width
-        if x + frame_width > sheet.get_width():
-            break
-        rect = pygame.Rect(x, 0, frame_width, frame_height)
+        if i >= total_avail: break
+        col = i % cols
+        row = i // cols
+        rect = pygame.Rect(col * frame_width, row * frame_height, frame_width, frame_height)
         frame = sheet.subsurface(rect).copy()
+        
         if scale != 1:
-            new_w = int(frame_width * scale)
-            new_h = int(frame_height * scale)
-            frame = pygame.transform.scale(frame, (new_w, new_h))
+            frame = pygame.transform.scale(frame, (int(frame_width * scale), int(frame_height * scale)))
         if flip:
             frame = pygame.transform.flip(frame, True, False)
         frames.append(frame)

@@ -28,7 +28,7 @@ HUD_BG = (20, 15, 30, 180)
 
 # Jugador
 PLAYER_SPEED = 6.0
-PLAYER_JUMP_FORCE = -15
+PLAYER_JUMP_FORCE = -16
 PLAYER_DASH_SPEED = 14
 PLAYER_DASH_DURATION = 18
 PLAYER_DASH_COOLDOWN = 40
@@ -75,11 +75,15 @@ EAGLE_DETECT_RANGE = 400
 
 # Oleadas
 WAVES = [
-    {"grunts": 2, "commanders": 0, "guardians": 0, "potionmasters": 1, "eagles": 1},
-    {"grunts": 2, "commanders": 1, "guardians": 0, "potionmasters": 1, "eagles": 1},
-    {"grunts": 2, "commanders": 1, "guardians": 1, "potionmasters": 2, "eagles": 2},
-    {"grunts": 3, "commanders": 2, "guardians": 1, "potionmasters": 2, "eagles": 2},
-    {"grunts": 4, "commanders": 2, "guardians": 2, "potionmasters": 3, "eagles": 3},
+    {"grunts": 1, "commanders": 0, "guardians": 0, "potionmasters": 0, "eagles": 1},
+    {"grunts": 3, "commanders": 1, "guardians": 1, "potionmasters": 1, "eagles": 1},
+    {"boss": "demon_slime"},
+    {"grunts": 3, "commanders": 1, "guardians": 1, "potionmasters": 2, "eagles": 2},
+    {"grunts": 4, "commanders": 2, "guardians": 2, "potionmasters": 2, "eagles": 2},
+    {"boss": "golem"},
+    {"grunts": 5, "commanders": 3, "guardians": 3, "potionmasters": 3, "eagles": 3},
+    {"grunts": 6, "commanders": 3, "guardians": 3, "potionmasters": 4, "eagles": 4},
+    {"boss": "frost_guardian"},
 ]
 
 # Controles teclado
@@ -92,12 +96,22 @@ KEY_DASH = pygame.K_k
 KEY_CAST = pygame.K_l
 KEY_HEAL = pygame.K_h
 KEY_CROUCH = pygame.K_s
+KEY_PARRY = pygame.K_u
 
 # Controles mando (Xbox layout)
 JOY_JUMP = 0       # A
 JOY_ATTACK = 2     # X
 JOY_DASH = 1       # B
 JOY_CAST = 5       # RB
-JOY_HEAL = 4       # LB
-JOY_CROUCH = 3     # Y
+JOY_HEAL = 6       # Cambiado para dejar LB libre
+JOY_CROUCH = 7     # Antes era Y, ahora Start
+JOY_PARRY = 3      # Ahora es Y
+JOY_SUPER = 4      # LB para el Super
 JOY_DEADZONE = 0.25
+
+# Boss configuration
+BOSS_HP = 25
+BOSS_SPEED = 1.5
+BOSS_DAMAGE = 2
+BOSS_ATTACK_RANGE = 40
+BOSS_DETECT_RANGE = 400

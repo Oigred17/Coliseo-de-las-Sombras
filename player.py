@@ -19,6 +19,7 @@ class Player:
         self.on_ground = False
         self.hp = PLAYER_MAX_HP
         self.mana = PLAYER_MAX_MANA
+        self.super_meter = 0.0 # Medidor de Super
         self.alive = True
         self.can_double_jump = False
         self.touching_wall = 0
@@ -32,6 +33,12 @@ class Player:
         self.attacking = False
         self.attack_timer = 0
         self.attack_hit = False
+
+        # Parry
+        self.parrying = False
+        self.parry_timer = 0
+        self.parry_cooldown = 0
+        self.can_parry = True
 
         # Invencibilidad
         self.i_frames = 0
@@ -50,6 +57,7 @@ class Player:
             "wall":   load_spritesheet("Player/_WallSlide.png", PF_W, PF_H, 0, S),
             "crouch": load_spritesheet("Player/_CrouchAll.png", PF_W, PF_H, 0, S),
             "roll":   load_spritesheet("Player/_Roll.png", PF_W, PF_H, 0, S),
+            "parry":  load_spritesheet("Player/_Attack.png", PF_W, PF_H, 0, S),
         }
         self.state = "idle"
         self.frame_index = 0.0
@@ -77,6 +85,17 @@ class Player:
             return pygame.Rect(r.right, r.y + 10, w, r.height - 20)
         else:
             return pygame.Rect(r.left - w, r.y + 10, w, r.height - 20)
+
+    @property
+    def parry_rect(self):
+        """Rectángulo del parry (delante del jugador, más pequeño)."""
+        r = self.rect
+        w = 50 * PLAYER_SCALE
+        h = r.height
+        if self.facing_right:
+            return pygame.Rect(r.right - 10, r.y, w, h)
+        else:
+            return pygame.Rect(r.left - w + 10, r.y, w, h)
 
     # ── Entrada ──
     def handle_input(self, keys, joy, events):
@@ -142,6 +161,13 @@ class Player:
             self.vx = direction * PLAYER_DASH_SPEED
             self.vy = 0
 
+        # Parry (tecla especial)
+        if events.get("parry") and self.parry_cooldown <= 0 and not self.attacking and not self.dashing:
+            self.parrying = True
+            self.parry_timer = 15
+            self.parry_cooldown = 60
+            self.i_frames = 15
+
     # ── Actualización ──
     def update(self, platforms):
         if not self.alive:
@@ -152,6 +178,8 @@ class Player:
             self.i_frames -= 1
         if self.dash_cooldown > 0:
             self.dash_cooldown -= 1
+        if self.parry_cooldown > 0:
+            self.parry_cooldown -= 1
 
         # Dash
         if self.dashing:
@@ -159,6 +187,12 @@ class Player:
             if self.dash_timer <= 0:
                 self.dashing = False
                 self.vx = 0
+
+        # Parry
+        if self.parrying:
+            self.parry_timer -= 1
+            if self.parry_timer <= 0:
+                self.parrying = False
 
         # Ataque
         if self.attacking:
@@ -230,6 +264,10 @@ class Player:
     def _update_animation(self):
         if not self.alive:
             new_state = "death"
+        elif self.state == "revive":
+            new_state = "revive"
+        elif self.parrying:
+            new_state = "parry"
         elif self.attacking:
             new_state = "attack"
         elif self.dashing:
@@ -251,9 +289,16 @@ class Player:
 
         frames = self.animations[self.state]
         self.frame_index += self.anim_speed
+        
         if self.state == "death":
             if self.frame_index >= len(frames):
                 self.frame_index = len(frames) - 1
+        elif self.state == "revive":
+            death_len = len(self.animations["death"])
+            self.frame_index -= self.anim_speed
+            if self.frame_index <= 0:
+                self.frame_index = 0
+                self.state = "idle"
         else:
             if self.frame_index >= len(frames):
                 self.frame_index = 0.0
@@ -281,8 +326,11 @@ class Player:
         if not self.facing_right:
             img = pygame.transform.flip(img, True, False)
 
-        # Parpadeo de invencibilidad
-        if self.i_frames > 0 and self.alive:
+        # Parpadeo de invencibilidad o desvanecimiento
+        if hasattr(self, 'alpha') and self.alpha < 255:
+            img = img.copy()
+            img.set_alpha(self.alpha)
+        elif self.i_frames > 0 and self.alive:
             if (self.i_frames // 4) % 2 == 0:
                 img = img.copy()
                 img.set_alpha(100)

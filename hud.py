@@ -22,11 +22,16 @@ class HUD:
         self.hp_bar_frame = load_single_image("Barra de Vida/Hp bar.png", SCALE)
         self.red_ball = load_single_image("Barra de Vida/red bar.png", SCALE)
         self.blue_bar = load_single_image("Barra de Vida/Blue bar.png", SCALE)
-        self.yellow_bar = load_single_image("Barra de Vida/Yellow bar.png", SCALE)
+        self.yellow_bar = load_single_image("Barra de Vida/yellow bar.png", SCALE)
 
         self.font = pygame.font.SysFont("Segoe UI", 22, bold=True)
         self.font_big = pygame.font.SysFont("Segoe UI", 48, bold=True)
         self.font_title = pygame.font.SysFont("Segoe UI", 72, bold=True)
+        try:
+            self.menu_bg = load_single_image("Esecenarios/menu_bg.png")
+            self.menu_bg = pygame.transform.scale(self.menu_bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        except:
+            self.menu_bg = None
 
     def show_message(self, text, duration=180):
         self.message = text
@@ -38,7 +43,7 @@ class HUD:
             if self.message_timer <= 0:
                 self.message = ""
 
-    def draw(self, surface, player_hp, max_hp, player_mana, max_mana, wave, score, game_state):
+    def draw(self, surface, player_hp, max_hp, player_mana, max_mana, player_super, max_super, wave, score, game_state, continue_timer=0):
         bar_x, bar_y = 20, 20
 
         # Dibujar bola roja de vida por DETRÁS del frame
@@ -51,14 +56,24 @@ class HUD:
                 by = bar_y + (5 * 3) + (self.red_ball.get_height() - h)
                 surface.blit(sub, (bx, by))
 
-        # Barra azul (poder/mana) por DETRÁS del frame
+        # Barra Azul (Mana) - Slot inferior con líneas
         if self.blue_bar and max_mana > 0:
             ratio_mana = player_mana / max_mana
             w = int(self.blue_bar.get_width() * ratio_mana)
             if w > 0:
                 sub = self.blue_bar.subsurface((0, 0, w, self.blue_bar.get_height()))
                 bb_x = bar_x + (58 * 3)
-                bb_y = bar_y + (46 * 3)
+                bb_y = bar_y + (40 * 3)
+                surface.blit(sub, (bb_x, bb_y))
+
+        # Barra Amarilla (Super) - Slot superior liso
+        if self.yellow_bar and max_super > 0:
+            ratio_super = player_super / max_super
+            w = int(self.yellow_bar.get_width() * ratio_super)
+            if w > 0:
+                sub = self.yellow_bar.subsurface((0, 0, w, self.yellow_bar.get_height()))
+                bb_x = bar_x + (62 * 3)
+                bb_y = bar_y + (20 * 3)
                 surface.blit(sub, (bb_x, bb_y))
 
         # Dibujar el marco de la barra de vida POR ENCIMA
@@ -75,7 +90,7 @@ class HUD:
 
         # Texto de HP numérico
         hp_text = self.font.render(f"{player_hp}/{max_hp}", True, WHITE)
-        surface.blit(hp_text, (bar_x + 130, bar_y + 55))
+        surface.blit(hp_text, (bar_x + 50, bar_y + 80)) # Centrado mejor
 
         # Mensaje central
         if self.message:
@@ -96,26 +111,49 @@ class HUD:
         elif game_state == "paused":
             self._draw_pause(surface)
         elif game_state == "gameover":
-            self._draw_gameover(surface)
+            self._draw_gameover(surface, continue_timer)
         elif game_state == "victory":
             self._draw_victory(surface)
 
     def _draw_menu(self, surface):
-        surface.fill((10, 15, 20)) # Dark atmospheric tone
-        
-        title = self.font_title.render("COLISEO DE LAS SOMBRAS", True, (220, 220, 230))
-        tx = SCREEN_WIDTH // 2 - title.get_width() // 2
-        surface.blit(title, (tx, 150))
+        if self.menu_bg:
+            surface.blit(self.menu_bg, (0, 0))
+        else:
+            # Fondo oscuro fallback
+            for i in range(SCREEN_HEIGHT):
+                color = (10 + i // 40, 10 + i // 60, 25 + i // 80)
+                pygame.draw.line(surface, color, (0, i), (SCREEN_WIDTH, i))
 
-        # Efecto de latido (pulsing) suave para el texto de inicio
+        # Título arriba (estilo Blasphemous v.4.0.67)
+        version_txt = self.font.render("v. 1.0.0 - COLISEO", True, (150, 140, 130))
+        surface.blit(version_txt, (SCREEN_WIDTH - version_txt.get_width() - 50, 30))
+
+        # No mostrar opciones de texto para mantener el estilo limpio
+        pass
+
+        # Panel de controles flotante
+        controls = [
+            "A/D [LS] - Mover",
+            "ESPACIO [A] - Saltar",
+            "J [X] - Atacar",
+            "K [B] - Dash",
+            "U [Y] - Parry",
+            "L [RB] - Magia",
+            "H [LB] - Curar"
+        ]
+
+        # Dibujar panel a la izquierda
+        for i, text in enumerate(controls):
+            c_surf = self.font.render(text, True, (180, 180, 190))
+            surface.blit(c_surf, (50, 480 + i * 25))
+
+        # Efecto de latido para el texto de inicio
         t = pygame.time.get_ticks()
         import math
         alpha = int(127 + 128 * math.sin(t / 400.0))
-        
-        start_txt = self.font_big.render("Presiona START o ENTER", True, (150, 160, 170))
+        start_txt = self.font_big.render("PRESIONA ENTER PARA COMENZAR", True, WHITE)
         start_txt.set_alpha(alpha)
-        sx = SCREEN_WIDTH // 2 - start_txt.get_width() // 2
-        surface.blit(start_txt, (sx, 400))
+        surface.blit(start_txt, (SCREEN_WIDTH // 2 - start_txt.get_width() // 2, 600))
 
     def _draw_pause(self, surface):
         overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
@@ -128,16 +166,25 @@ class HUD:
         info = self.font.render("Presiona START o ENTER para continuar", True, (200, 200, 200))
         surface.blit(info, (SCREEN_WIDTH // 2 - info.get_width() // 2, 350))
 
-    def _draw_gameover(self, surface):
+    def _draw_gameover(self, surface, continue_timer=0):
         overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
         overlay.fill((40, 5, 5, 180))
         surface.blit(overlay, (0, 0))
 
         title = self.font_title.render("HAS CAÍDO", True, (255, 80, 80))
-        surface.blit(title, (SCREEN_WIDTH // 2 - title.get_width() // 2, 250))
+        surface.blit(title, (SCREEN_WIDTH // 2 - title.get_width() // 2, 200))
 
-        sub = self.font_big.render("Presiona ENTER o START para reintentar", True, (200, 180, 180))
-        surface.blit(sub, (SCREEN_WIDTH // 2 - sub.get_width() // 2, 350))
+        if continue_timer > 0:
+            secs = int(continue_timer) + 1
+            color = (100, 255, 100) if secs > 5 else (255, 100, 100)
+            cont_txt = self.font_big.render(f"CONTINUAR?  {secs}s", True, color)
+            surface.blit(cont_txt, (SCREEN_WIDTH // 2 - cont_txt.get_width() // 2, 310))
+
+            sub = self.font.render("Presiona ENTER o START para continuar", True, (200, 180, 180))
+            surface.blit(sub, (SCREEN_WIDTH // 2 - sub.get_width() // 2, 400))
+        else:
+            sub = self.font_big.render("Presiona ENTER o START para volver al menú", True, (200, 180, 180))
+            surface.blit(sub, (SCREEN_WIDTH // 2 - sub.get_width() // 2, 350))
 
     def _draw_victory(self, surface):
         overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
