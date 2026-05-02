@@ -8,31 +8,40 @@ import random
 import math
 from settings import *
 from player import Player
-from enemies import Grunt, Commander, Guardian, Potionmaster, Eagle, Heart, FrostGuardian, Golem, DemonSlime
+from enemies import Grunt, Commander, Guardian, Potionmaster, FlyingEye, Heart, FrostGuardian, Golem, DemonSlime, Ghost, Piranha
 from hud import HUD
 from spritesheet import load_single_image, load_spritesheet
+from tutorial import TutorialManager
 
 class SoundManager:
     def __init__(self):
         pygame.mixer.init()
         self.sounds = {}
+        self.current_music = None
         # Load important sounds
         try:
+            # Player SFX
             self.sounds["attack"] = pygame.mixer.Sound("Efectos de sonido/SFX/07_human_atk_sword_1.wav")
             self.sounds["dash"] = pygame.mixer.Sound("Efectos de sonido/SFX/15_human_dash_1.wav")
             self.sounds["damage"] = pygame.mixer.Sound("Efectos de sonido/SFX/11_human_damage_1.wav")
             self.sounds["jump"] = pygame.mixer.Sound("Efectos de sonido/SFX/12_human_jump_1.wav")
-            self.sounds["enemy_hit"] = pygame.mixer.Sound("Efectos de sonido/SFX/26_sword_hit_1.wav")
-            self.sounds["victory"] = pygame.mixer.Sound("Efectos de sonido/SFX/10_human_special_atk_1.wav")
-            self.sounds["parry"] = pygame.mixer.Sound("Efectos de sonido/SFX/26_sword_hit_1.wav")
-            self.sounds["boss_arrival"] = pygame.mixer.Sound("Efectos de sonido/SFX/18_orc_charge.wav")
-            self.sounds["cast"] = pygame.mixer.Sound("Efectos de sonido/SFX/08_human_charge_1.wav")
-            self.sounds["charged"] = pygame.mixer.Sound("Efectos de sonido/SFX/09_human_charging_1_loop.wav")
+            self.sounds["cast"] = pygame.mixer.Sound("Efectos de sonido/SFX/10_human_special_atk_2.wav")
+            self.sounds["heal"] = pygame.mixer.Sound("Efectos de sonido/Level up Pickup (Rpg).wav")
             
-            # Music
-            pygame.mixer.music.load("Efectos de sonido/Music/Goblins_Dance_(Battle).wav")
-            pygame.mixer.music.set_volume(1.0)
-            pygame.mixer.music.play(-1) 
+            # Enemy/Combat SFX
+            self.sounds["enemy_hit"] = pygame.mixer.Sound("Efectos de sonido/SFX/26_sword_hit_1.wav")
+            self.sounds["enemy_death"] = pygame.mixer.Sound("Efectos de sonido/SFX/24_orc_death_spin.wav")
+            self.sounds["parry"] = pygame.mixer.Sound("Efectos de sonido/SFX/20_orc_special_atk.wav")
+            self.sounds["boss_arrival"] = pygame.mixer.Sound("Efectos de sonido/SFX/18_orc_charge.wav")
+            
+            # UI/Other
+            self.sounds["victory"] = pygame.mixer.Sound("Efectos de sonido/SFX/10_human_special_atk_1.wav")
+            self.sounds["charged"] = pygame.mixer.Sound("Efectos de sonido/SFX/09_human_charging_1_loop.wav")
+            self.sounds["super"] = pygame.mixer.Sound("Efectos de sonido/SFX/20_orc_special_atk.wav")
+            self.sounds["super2"] = pygame.mixer.Sound("Efectos de sonido/SFX/10_human_special_atk_1.wav")
+            
+            # Initial Music
+            self.change_music("Efectos de sonido/Music/Goblins_Den_(Regular).wav")
         except Exception as e:
             print(f"No se pudieron cargar los sonidos: {e}")
 
@@ -41,9 +50,20 @@ class SoundManager:
             self.sounds[name].set_volume(0.5)
             self.sounds[name].play()
 
+    def change_music(self, path):
+        if self.current_music == path:
+            return
+        try:
+            pygame.mixer.music.load(path)
+            pygame.mixer.music.set_volume(0.6)
+            pygame.mixer.music.play(-1)
+            self.current_music = path
+        except:
+            print(f"Error cargando musica: {path}")
+
     def play_music(self):
         try:
-            if not pygame.mixer.music.get_busy():
+            if not pygame.mixer.music.get_busy() and self.current_music:
                 pygame.mixer.music.play(-1)
         except:
             pass
@@ -201,15 +221,42 @@ class EnemyEnergyBall:
 
     def update(self):
         self.x += self.vx
+        self.y += getattr(self, "vy", 0)
+        if getattr(self, "is_rock", False):
+            self.vy = getattr(self, "vy", 0) + 0.5  # Gravedad
+            if self.y > 620 - self.radius:  # Rebotar en el suelo
+                self.y = 620 - self.radius
+                self.vy = -8
         self.life -= 1
 
     def draw(self, surface, camera_x=0, camera_y=0):
-        s = int(self.radius * 2)
-        surf = pygame.Surface((s * 2, s * 2), pygame.SRCALPHA)
-        pygame.draw.circle(surf, (*self.color, 100), (s, s), self.radius * 1.5)
-        pygame.draw.circle(surf, (*self.color, 200), (s, s), self.radius)
-        pygame.draw.circle(surf, (255, 255, 255, 255), (s, s), self.radius // 2)
-        surface.blit(surf, (int(self.x - s - camera_x), int(self.y - s - camera_y)))
+        if getattr(self, "is_garden", False):
+            if hasattr(self, "sprite"):
+                if self.impact_frame > 0:
+                    alpha = int(self.impact_frame / 30.0 * 255)
+                    surf = self.sprite.copy()
+                    surf.set_alpha(alpha)
+                else:
+                    surf = self.sprite
+                surface.blit(surf, (int(self.x - surf.get_width() // 2 - camera_x), int(self.y - surf.get_height() // 2 - camera_y)))
+        elif getattr(self, "is_rock", False):
+            cx = int(self.x - camera_x)
+            cy = int(self.y - camera_y)
+            r = self.radius
+            points = [
+                (cx - r, cy - r//2), (cx - r//2, cy - r), (cx + r//2, cy - r),
+                (cx + r, cy - r//3), (cx + r, cy + r//2), (cx + r//2, cy + r),
+                (cx - r//3, cy + r), (cx - r, cy + r//2)
+            ]
+            pygame.draw.polygon(surface, (120, 100, 80), points)
+            pygame.draw.polygon(surface, (80, 60, 40), points, 3)
+        else:
+            s = int(self.radius * 2)
+            surf = pygame.Surface((s * 2, s * 2), pygame.SRCALPHA)
+            pygame.draw.circle(surf, (*self.color, 100), (s, s), self.radius * 1.5)
+            pygame.draw.circle(surf, (*self.color, 200), (s, s), self.radius)
+            pygame.draw.circle(surf, (255, 255, 255, 255), (s, s), self.radius // 2)
+            surface.blit(surf, (int(self.x - s - camera_x), int(self.y - s - camera_y)))
 
 class HomingWave:
     """Onda de energía que persigue enemigos (Superhabilidad)."""
@@ -223,24 +270,27 @@ class HomingWave:
         self.life = 300
         self.hit_cooldown = 0
         self.angle = 0
+        self.timer = 0
 
     @property
     def rect(self):
         return pygame.Rect(self.x - self.radius, self.y - self.radius, self.radius*2, self.radius*2)
 
-    def update(self):
-        self.life -= 1
+    def update(self, enemies):
         if self.hit_cooldown > 0: self.hit_cooldown -= 1
         
-        # Buscar nuevo objetivo si no hay uno o si el actual murió
+        # Buscar nuevo objetivo de entre los enemigos vivos
+        alive_enemies = [e for e in enemies if e.alive]
+        
+        # Si no hay objetivo o el actual murió, buscar el más cercano
         if not self.current_target or not self.current_target.alive:
-            alive_targets = [t for t in self.targets if t.alive]
-            if alive_targets:
-                self.current_target = min(alive_targets, key=lambda t: abs(t.x - self.x) + abs(t.y - self.y))
+            if alive_enemies:
+                self.current_target = min(alive_enemies, key=lambda e: abs(e.x - self.x) + abs(e.y - self.y))
             else:
                 self.current_target = None
 
         if self.current_target:
+            self.life -= 1
             import math
             dx = self.current_target.x - self.x
             dy = (self.current_target.y - self.current_target.height // 2) - self.y
@@ -250,14 +300,18 @@ class HomingWave:
                 self.y += (dy / dist) * self.speed
             
             if self.rect.colliderect(self.current_target.rect) and self.hit_cooldown <= 0:
-                self.current_target.take_damage(3)
+                self.current_target.take_damage(3, ignore_iframes=True)
                 self.hits_left -= 1
                 self.hit_cooldown = 15
                 if self.hits_left <= 0: self.life = 0
         else:
-            self.x += 10 # Se mueve adelante si no hay nadie
-            
-        if self.life <= 0: return
+            # Flotar suavemente si no hay enemigos
+            self.timer += 1
+            import math
+            self.y += math.sin(self.timer / 10.0) * 2
+            self.x += math.cos(self.timer / 15.0) * 2
+            # No reducir vida mientras espera
+            pass
 
     def draw(self, surface, camera_x, camera_y):
         s = int(self.radius * 2)
@@ -487,6 +541,10 @@ class Game:
         self.max_continue_time = 10
         self.best_wave = 0
         self.best_score = 0
+        self.b_hold_timer = 0
+        self.rt_was_pressed = False
+        self.tutorial_manager = TutorialManager(self)
+        self.tutorial_parry_success = False
 
     def _init_joystick(self):
         if pygame.joystick.get_count() > 0:
@@ -516,20 +574,33 @@ class Game:
                 random.randint(15, 40), random.randint(2, 5),
             ))
 
-    def _reset_game(self):
-        self.player = Player(-100, SCREEN_HEIGHT - 100) # Empieza fuera de pantalla
+    def _reset_game(self, start_wave=0):
         self.enemies = []
         self.particles = []
         self.projectiles = []
         self.enemy_projectiles = []
         self.homing_waves = []
         self.score = 0
-        self.current_wave = 0
-        self.game_state = "cinematic"
-        self.cinematic_timer = 180
+        self.current_wave = start_wave
         self.sounds.play_music()
         self.pending_enemies = []
         self.spawn_timer = 0
+
+        if start_wave > 0:
+            # Selección directa de oleada: saltar cinemática, ir directo
+            self.player = Player(300, SCREEN_HEIGHT - 100)
+            self.player.on_ground = True
+            self._start_wave()
+        else:
+            # Inicio normal con cinemática
+            self.player = Player(-100, SCREEN_HEIGHT - 100)
+            self.game_state = "cinematic"
+            self.cinematic_timer = 180
+
+    def _start_tutorial(self):
+        self._reset_game()
+        self.game_state = "tutorial"
+        self.tutorial_manager.start()
 
     def _start_wave(self):
         self.enemies = []
@@ -574,14 +645,19 @@ class Game:
             if wave["boss"] == "frost_guardian":
                 self.enemies.append(FrostGuardian(ARENA_WIDTH - 200, -200)) # Menos caída
                 self.boss_name = "FROST GUARDIAN"
+                self.sounds.change_music("Efectos de sonido/Music/music boos2.wav")
             elif wave["boss"] == "golem":
                 self.enemies.append(Golem(ARENA_WIDTH - 200, -200))
                 self.boss_name = "STONE GOLEM"
+                self.sounds.change_music("Efectos de sonido/Music/music boos2.wav")
             elif wave["boss"] == "demon_slime":
                 self.enemies.append(DemonSlime(ARENA_WIDTH - 200, -200))
                 self.boss_name = "DEMON SLIME"
+                self.sounds.change_music("Efectos de sonido/Music/music boos1.wav")
             return # Saltamos el resto de la función
         else:
+            # Musica de batalla normal
+            self.sounds.change_music("Efectos de sonido/Music/Goblins_Dance_(Battle).wav")
             self.pending_enemies = []
             # Distribuir spawn normal
             spawns = [400, 800, 1200, 1600, 2000, 600, 1400, 1800]
@@ -600,13 +676,32 @@ class Game:
                 self.pending_enemies.append(Potionmaster(spawns[idx % len(spawns)], fy - 100))
                 idx += 1
             for _ in range(wave.get("eagles", 0)):
-                self.pending_enemies.append(Eagle(spawns[idx % len(spawns)], fy - 300))
+                self.pending_enemies.append(FlyingEye(spawns[idx % len(spawns)], fy - 300))
                 idx += 1
+            
+
+            for _ in range(wave.get("ghosts", 0)):
+                self.pending_enemies.append(Ghost(spawns[idx % len(spawns)], fy - 300))
+                idx += 1
+            for _ in range(wave.get("piranhas", 0)):
+                self.pending_enemies.append(Piranha(spawns[idx % len(spawns)], fy - 80))
+                idx += 1
+            
+            # Barajar para que no salgan todos los del mismo tipo juntos
+            random.shuffle(self.pending_enemies)
+
+            # Aplicar escalado de dificultad (HP y daño)
+            hp_mult = 1.0 + (self.current_wave * 0.20) # +20% de salud por oleada
+            dmg_mult = 1.0 + (self.current_wave * 0.10) # +10% de daño por oleada
+            for e in self.pending_enemies:
+                e.max_hp = int(e.max_hp * hp_mult)
+                e.hp = e.max_hp
+                e.damage = int(e.damage * dmg_mult)
             
             # El primer enemigo aparece de inmediato
             if self.pending_enemies:
                 self.enemies.append(self.pending_enemies.pop(0))
-                self.spawn_timer = 120 # 2 segundos para el siguiente
+                self.spawn_timer = 60 # 1 segundo para el siguiente
 
         themes = ["Normal BG", "Autumn BG", "Winter BG"]
         self.arena.set_bg(themes[self.current_wave % len(themes)])
@@ -629,7 +724,10 @@ class Game:
             if atk.colliderect(enemy.rect):
                 hit = enemy.take_damage(PLAYER_ATTACK_DAMAGE)
                 if hit:
-                    self.sounds.play("enemy_hit")
+                    if not enemy.alive:
+                        self.sounds.play("enemy_death")
+                    else:
+                        self.sounds.play("enemy_hit")
                     self.player.attack_hit = True
                     self.player.mana = min(PLAYER_MAX_MANA, self.player.mana + 15)
                     self.player.super_meter = min(100, self.player.super_meter + 8)
@@ -644,10 +742,20 @@ class Game:
                                                        (255, 255, 200), random.uniform(-2, 2), random.uniform(-3, 0), 20, 2))
 
                     self._rumble(0.5, 10)
-                if not enemy.alive:
-                    self.score += 150
-                    self._spawn_particles(enemy.x, enemy.y - enemy.height // 2,
-                                          (200, 50, 255), 30)
+                    
+                    if not enemy.alive:
+                        self.score += 150
+                        self._spawn_particles(enemy.x, enemy.y - enemy.height // 2,
+                                              (200, 50, 255), 30)
+                        if getattr(enemy, "is_boss", False):
+                            # Gran recompensa por jefe
+                            self.player.hp = min(PLAYER_MAX_HP, self.player.hp + 50)
+                            self.player.mana = min(PLAYER_MAX_MANA, self.player.mana + 100)
+                            self.score += 1500
+                            self._spawn_particles(enemy.x, enemy.y, (255, 255, 100), 100)
+                            self._rumble(1.0, 30)
+
+                    break  # Solo dañar a un enemigo por cada swing de la espada
                     for _ in range(20):
                         self.particles.append(Particle(enemy.x, enemy.y - enemy.height // 2,
                                                        (255, 100, 255), random.uniform(-5, 5), random.uniform(-5, -1), 45, 6))
@@ -668,6 +776,8 @@ class Game:
                 continue
             if parry_rect.colliderect(enemy.attack_rect):
                 enemy.take_damage(PLAYER_ATTACK_DAMAGE, parry=True)
+                self.sounds.play("parry")
+                self.tutorial_parry_success = True
                 # Chispas doradas de parry
                 for _ in range(30):
                     self.particles.append(Particle(
@@ -677,6 +787,16 @@ class Game:
                     ))
                 self.player.mana = min(PLAYER_MAX_MANA, self.player.mana + 20)
                 self._rumble(1.0, 15)
+                break
+
+        # Parry proyectiles tutorial/enemigos
+        for p in self.enemy_projectiles:
+            if parry_rect.colliderect(p.attack_rect):
+                p.take_damage(0, parry=True)
+                self.sounds.play("parry")
+                self.tutorial_parry_success = True
+                for _ in range(20):
+                    self.particles.append(Particle(p.x, p.y, (255, 255, 100), random.uniform(-5, 5), random.uniform(-5, 5), 30, 4))
                 break
 
     def run(self):
@@ -694,14 +814,21 @@ class Game:
                     if event.key == KEY_CAST: input_events["cast"] = True
                     if event.key == KEY_HEAL: input_events["heal"] = True
                     if event.key == KEY_PARRY: input_events["parry"] = True
+                    # Menu navigation
+                    if event.key in (pygame.K_w, pygame.K_UP): input_events["menu_up"] = True
+                    if event.key in (pygame.K_s, pygame.K_DOWN): input_events["menu_down"] = True
+                    if event.key == pygame.K_ESCAPE: input_events["menu_back"] = True
+                    if event.key == pygame.K_RETURN: input_events["menu_confirm"] = True
                 if event.type == pygame.JOYBUTTONDOWN:
                     if event.button == JOY_JUMP: input_events["jump"] = True
                     if event.button == JOY_ATTACK: input_events["attack"] = True
-                    if event.button == JOY_DASH: input_events["dash"] = True
-                    if event.button == JOY_CAST: input_events["cast"] = True
-                    if event.button == JOY_HEAL: input_events["heal"] = True
+                    # B se maneja por tiempo (Hold/Press)
                     if event.button == JOY_PARRY: input_events["parry"] = True
                     if event.button == JOY_SUPER: input_events["super"] = True
+                    if event.button == JOY_SUPER2: input_events["super2"] = True
+                    # Menu navigation
+                    if event.button == 0: input_events["menu_confirm"] = True  # A
+                    if event.button == 1: pass # B manejado en polling
                 if event.type == pygame.JOYDEVICEADDED:
                     self._init_joystick()
                 if event.type == pygame.JOYDEVICEREMOVED:
@@ -724,6 +851,29 @@ class Game:
                 try:
                     if joy.get_button(7):
                         start_pressed = True
+                    
+                    # RT para DASH
+                    rt_val = joy.get_axis(JOY_DASH_AXIS)
+                    if rt_val > JOY_RT_THRESHOLD:
+                        if not self.rt_was_pressed:
+                            input_events["dash"] = True
+                        self.rt_was_pressed = True
+                    else:
+                        self.rt_was_pressed = False
+
+                    # B para Magia (Pulsar) y Curar (Mantener)
+                    b_pressed = joy.get_button(1)
+                    if b_pressed:
+                        self.b_hold_timer += 1
+                        if self.b_hold_timer >= 30: # 0.5s para curar
+                            input_events["heal"] = True
+                            if self.b_hold_timer % 4 == 0:
+                                self._spawn_particles(self.player.x, self.player.y - 40, (100, 255, 100), 5)
+                    else:
+                        if 0 < self.b_hold_timer < 30:
+                            input_events["cast"] = True
+                        self.b_hold_timer = 0
+
                 except Exception:
                     pass
             
@@ -736,8 +886,15 @@ class Game:
                 if random.random() < 0.15:
                     self.particles.append(Particle(random.randint(0, SCREEN_WIDTH), SCREEN_HEIGHT, (100, 150, 255), 0, random.uniform(-2, -0.5), 100, random.randint(2, 4)))
                 
-                if just_pressed_start:
+                # Manejo de menú con navegación
+                menu_result = self.hud.handle_menu_input(input_events, joy, just_pressed_start)
+                if menu_result["action"] == "play":
                     self._reset_game()
+                elif menu_result["action"] == "play_wave":
+                    self._reset_game(start_wave=menu_result["wave"])
+                    self.hud.sub_menu = None
+                elif menu_result["action"] == "tutorial":
+                    self._start_tutorial()
 
             elif self.game_state == "paused":
                 if just_pressed_start:
@@ -772,12 +929,14 @@ class Game:
                     self.game_state = "paused"
                     continue
 
-                # Spawn gradual de enemigos
-                if self.pending_enemies and self.spawn_timer <= 0:
-                    new_enemy = self.pending_enemies.pop(0)
-                    self.enemies.append(new_enemy)
-                    self._spawn_particles(new_enemy.x, new_enemy.y - 20, (200, 200, 255), 15)
-                    self.spawn_timer = 120
+                # Spawn gradual de enemigos (límite de 2 a la vez)
+                if self.pending_enemies:
+                    max_concurrent = 2
+                    if len(self.enemies) < max_concurrent and self.spawn_timer <= 0:
+                        new_enemy = self.pending_enemies.pop(0)
+                        self.enemies.append(new_enemy)
+                        self._spawn_particles(new_enemy.x, new_enemy.y - 20, (200, 200, 255), 15)
+                        self.spawn_timer = 60
                 if self.spawn_timer > 0:
                     self.spawn_timer -= 1
 
@@ -818,25 +977,50 @@ class Game:
                     self.camera_shake = 15
                     self._super_flash = 10
 
-                if input_events.get("heal") and self.player.mana >= 30 and self.player.hp < PLAYER_MAX_HP:
-                    self.player.mana -= 30
-                    self.player.hp = min(PLAYER_MAX_HP, self.player.hp + 2)
-                    self.sounds.play("heal")
-                    for _ in range(30):
-                        self.particles.append(Particle(
-                            self.player.x, self.player.y - self.player.height // 2,
-                            (100, 255, 100), random.uniform(-3, 3), random.uniform(-4, -1), 30, 4
-                        ))
-                    for _ in range(10):
-                        self.particles.append(Particle(
-                            self.player.x, self.player.y - self.player.height // 2,
-                            (200, 255, 200), random.uniform(-2, 2), random.uniform(-2, 0), 20, 3
-                        ))
-                    self._rumble(0.4, 10)
-                    self.camera_shake = 5
+                # Curación gradual (Mantener B)
+                if input_events.get("heal") and self.player.mana >= 1 and self.player.hp < PLAYER_MAX_HP:
+                    self.player.healing_glow = True
+                    self.player.healing_timer += 1
+                    if self.player.healing_timer >= 12: # Curar 1 HP cada 12 frames
+                        self.player.hp = min(PLAYER_MAX_HP, self.player.hp + 1)
+                        self.player.mana -= 4
+                        self.player.healing_timer = 0
+                        self.sounds.play("heal")
+                        for _ in range(10):
+                            self.particles.append(Particle(
+                                self.player.x, self.player.y - self.player.height // 2,
+                                (100, 255, 100), random.uniform(-2, 2), random.uniform(-4, -1), 30, 4
+                            ))
+                        self._rumble(0.2, 5)
+                else:
+                    self.player.healing_glow = False
+                    if not input_events.get("heal"):
+                        self.player.healing_timer = 0
 
                 self.player.handle_input(keys, joy, input_events)
                 self.player.update(self.arena.platforms)
+                # Superpoder 2: Explosión Astral (RB)
+                if input_events.get("super2") and self.player.super_meter >= 50:
+                    self.player.super_meter -= 50
+                    self.sounds.play("super2")
+                    self.camera_shake = 25
+                    self._super_flash = 12
+                    # Explosión masiva de partículas
+                    for _ in range(80):
+                        angle = random.uniform(0, 6.28)
+                        speed = random.uniform(3, 16)
+                        self.particles.append(Particle(self.player.x, self.player.y - 40, (180, 100, 255), math.cos(angle)*speed, math.sin(angle)*speed, 50, 5))
+                    for _ in range(40):
+                        angle = random.uniform(0, 6.28)
+                        r = random.uniform(0, 400)
+                        self.particles.append(Particle(self.player.x + math.cos(angle)*r, self.player.y - 40 + math.sin(angle)*r, (255, 255, 255), 0, -1, 30, 2))
+                    
+                    for enemy in self.enemies:
+                        if enemy.alive and abs(enemy.x - self.player.x) < 450:
+                            enemy.take_damage(8, ignore_iframes=True)
+                            for _ in range(15):
+                                self.particles.append(Particle(enemy.x, enemy.y-30, (255, 150, 255), random.uniform(-5, 5), random.uniform(-5, 5), 35, 4))
+
 
                 if self.player.dashing:
                     if self.player.dash_timer == 18:
@@ -869,8 +1053,6 @@ class Game:
                     
                     # Efectos de fase 2 para jefes
                     if getattr(e, "is_boss", False) and getattr(e, "phase", 1) == 2:
-                        stype = getattr(e, "special_type", None)
-                        
                         if isinstance(e, DemonSlime):
                             self.particles.append(Particle(e.x + random.randint(-50, 50), e.y - 10, (255, 60, 0), 0, -3, 25, 4))
                         elif isinstance(e, Golem):
@@ -882,7 +1064,9 @@ class Game:
                         if getattr(e, "current_attack_type", "") == "blizzard_dash":
                             self.particles.append(Particle(e.x, e.y - 50, (200, 255, 255), -5, 0, 20, 5))
 
-                        # Ejecución de habilidades especiales
+                    # Ejecución de habilidades especiales (para todas las fases)
+                    if getattr(e, "is_boss", False):
+                        stype = getattr(e, "special_type", None)
                         if stype and not getattr(e, "special_fired_this_frame", False):
                             e.special_fired_this_frame = True
                             
@@ -953,14 +1137,22 @@ class Game:
                             elif stype == "meteor_shower":
                                 for _ in range(5):
                                     mx = self.player.x + random.randint(-200, 200)
-                                    self.enemy_projectiles.append(EnemyEnergyBall(mx, -50, 0, (200, 100, 50)))
-                                    self.enemy_projectiles[-1].vy = 8
-                                    self.enemy_projectiles[-1].update = lambda self=self.enemy_projectiles[-1]: (setattr(self, 'y', self.y + self.vy), setattr(self, 'life', self.life - 1))
+                                    meteor = EnemyEnergyBall(mx, -50, 0, (200, 100, 50))
+                                    meteor.is_rock = True
+                                    meteor.radius = 18
+                                    meteor.vy = random.randint(6, 12)
+                                    meteor.update = lambda self=meteor: (setattr(self, 'y', self.y + getattr(self, 'vy', 8)), setattr(self, 'life', self.life - 1))
+                                    self.enemy_projectiles.append(meteor)
                                 self.camera_shake = 12
                                 self.sounds.play("enemy_hit")
                             elif stype == "rock_throw":
                                 vx = 12 if e.facing_right else -12
-                                self.enemy_projectiles.append(EnemyEnergyBall(e.x, e.y - 60, vx, (150, 130, 100)))
+                                rock = EnemyEnergyBall(e.x, e.y - 60, vx, (150, 130, 100))
+                                rock.is_rock = True
+                                rock.radius = 20
+                                rock.damage = 3
+                                rock.vy = -5
+                                self.enemy_projectiles.append(rock)
                                 self._spawn_particles(e.x, e.y - 60, (180, 160, 120), 10)
                                 self.sounds.play("enemy_hit")
                             elif stype == "ice_bolt":
@@ -980,6 +1172,41 @@ class Game:
                                     self.enemy_projectiles[-1].update = lambda self=self.enemy_projectiles[-1]: (setattr(self, 'y', self.y + self.vy), setattr(self, 'life', self.life - 1))
                                 self.camera_shake = 6
                                 self.sounds.play("enemy_hit")
+                            elif stype == "ice_shards":
+                                for angle in range(0, 360, 45):
+                                    rad = math.radians(angle)
+                                    vx = math.cos(rad) * 9
+                                    vy = math.sin(rad) * 9
+                                    eb = EnemyEnergyBall(e.x, e.y - 60, vx, (150, 210, 255))
+                                    eb.vy = vy
+                                    self.enemy_projectiles.append(eb)
+                                self._spawn_particles(e.x, e.y - 60, (200, 255, 255), 15)
+                                self.sounds.play("enemy_hit")
+                            elif stype == "triple_bolt":
+                                for i in range(-1, 2):
+                                    vx = (16 if e.facing_right else -16)
+                                    eb = EnemyEnergyBall(e.x, e.y - 60, vx, (120, 230, 255))
+                                    eb.vy = i * 4
+                                    self.enemy_projectiles.append(eb)
+                                self.sounds.play("enemy_hit")
+                                self._spawn_particles(e.x, e.y - 60, (150, 240, 255), 10)
+                            elif stype == "blizzard_dash":
+                                e.vx = (25 if e.facing_right else -25)
+                                e.charge_timer = 25
+                                self.camera_shake = 10
+                                self._spawn_particles(e.x, e.y - 30, (255, 255, 255), 20)
+                                self.sounds.play("dash")
+                            elif stype == "garden_drop":
+                                for _ in range(3):
+                                    gx = self.player.x + random.randint(-150, 150)
+                                    sprite = random.choice(e.garden_sprites)
+                                    self.enemy_projectiles.append(EnemyEnergyBall(gx, -50, 0, (100, 150, 100)))
+                                    self.enemy_projectiles[-1].vy = 10
+                                    self.enemy_projectiles[-1].sprite = sprite
+                                    self.enemy_projectiles[-1].is_garden = True
+                                    self.enemy_projectiles[-1].impact_frame = 0
+                                self.camera_shake = 10
+                                self.sounds.play("enemy_hit")
 
                         if not stype:
                             e.special_fired_this_frame = False
@@ -987,7 +1214,10 @@ class Game:
                     if getattr(e, "has_thrown", False) and getattr(e, "attack_hit", False):
                         e.attack_hit = False
                         dir_x = 1 if e.facing_right else -1
-                        self.enemy_projectiles.append(EnemyProjectile(e.x, e.y - 40, dir_x * 8, -5, self.potion_frames))
+                        if isinstance(e, Piranha):
+                            self.enemy_projectiles.append(EnemyEnergyBall(e.x, e.y - 20, dir_x * 6, (50, 200, 50)))
+                        else:
+                            self.enemy_projectiles.append(EnemyProjectile(e.x, e.y - 40, dir_x * 8, -5, self.potion_frames))
 
                 # Projectiles
                 for proj in self.projectiles:
@@ -995,17 +1225,39 @@ class Game:
                     self.particles.append(Particle(proj.x, proj.y, (100, 200, 255), 0, 0, 10, 2))
                     for e in self.enemies:
                         if e.alive and proj.rect.colliderect(e.rect):
-                            if e.take_damage(proj.damage):
+                            if e.take_damage(proj.damage, ignore_iframes=True):
                                 proj.life = 0
                                 self._spawn_particles(e.x, e.y - e.height // 2, (100, 200, 255), 15)
-                                if not e.alive: self.score += 100
+                                if not e.alive: 
+                                    self.score += 100
+                                    if getattr(e, "is_boss", False):
+                                        self.player.hp = min(PLAYER_MAX_HP, self.player.hp + 50)
+                                        self.player.mana = min(PLAYER_MAX_MANA, self.player.mana + 100)
+                                        self.score += 1500
+                                        self._spawn_particles(e.x, e.y, (255, 255, 100), 100)
+                                        self._rumble(1.0, 30)
                             break
                 self.projectiles = [p for p in self.projectiles if p.life > 0]
                 
                 # Enemy Projectiles (Pociones y Energía)
                 for proj in self.enemy_projectiles:
                     if isinstance(proj, EnemyEnergyBall):
-                        proj.update()
+                        if getattr(proj, "is_garden", False):
+                            proj.update()
+                            if proj.y >= self.arena.floor_y - 20 and proj.impact_frame == 0:
+                                proj.impact_frame = 30
+                                proj.y = self.arena.floor_y - 20
+                                proj.vy = 0
+                                self._spawn_particles(proj.x, proj.y, (100, 150, 100), 20)
+                                self.camera_shake = 5
+                                if abs(self.player.x - proj.x) < 80:
+                                    self.player.take_damage(2, proj.x)
+                            elif proj.impact_frame > 0:
+                                proj.impact_frame -= 1
+                                if proj.impact_frame <= 0:
+                                    proj.life = 0
+                        else:
+                            proj.update()
                     else:
                         proj.update(self.arena.floor_y)
                         
@@ -1066,7 +1318,26 @@ class Game:
                     self.wave_transition_timer = 240
                     self.portal = Portal(ARENA_WIDTH // 2, self.arena.floor_y - 60)
                     self.fireworks = []
+                    self.homing_waves = [] # Limpiar supers al terminar oleada
                     self.sounds.play("heal") 
+            
+            elif self.game_state == "tutorial":
+                self.tutorial_manager.update(input_events)
+                self.player.handle_input(keys, joy, input_events)
+                self.player.update(self.arena.platforms)
+                for e in self.enemies:
+                    e.update(self.player, self.arena.platforms)
+                for p in self.enemy_projectiles:
+                    p.update()
+                self.enemy_projectiles = [p for p in self.enemy_projectiles if p.alive]
+                
+                # Check tutorial portal entry
+                if self.portal and self.player.rect.colliderect(self.portal.rect):
+                    self.game_state = "menu"
+                    self.hud.show_message("ENTRENAMIENTO COMPLETADO", 180)
+                    self.portal = None
+                    self.enemies = []
+                    self.enemy_projectiles = []
 
             elif self.game_state == "cinematic":
                 self.cinematic_timer -= 1
@@ -1179,7 +1450,7 @@ class Game:
                     if self.continue_timer > 0:
                         self.player.hp = PLAYER_MAX_HP
                         self.player.alive = True
-                        self.player.alpha = 0
+                        self.player.alpha = 255
                         self.player.i_frames = 120
                         self.player.state = "revive"
                         death_frames = len(self.player.animations["death"])
@@ -1284,7 +1555,7 @@ class Game:
 
             # Homing Waves (Superhabilidad)
             for hw in self.homing_waves:
-                hw.update()
+                hw.update(self.enemies)
                 hw.draw(self.screen, curr_cx, curr_cy)
             self.homing_waves = [hw for hw in self.homing_waves if hw.life > 0]
 
@@ -1296,14 +1567,7 @@ class Game:
 
             if self.player:
                 self.player.draw(self.screen, curr_cx, curr_cy)
-                if self.player.super_meter >= 100:
-                    aura_surf = pygame.Surface((80, 80), pygame.SRCALPHA)
-                    t = pygame.time.get_ticks()
-                    aura_alpha = int(100 + 60 * __import__('math').sin(t / 180.0))
-                    pygame.draw.circle(aura_surf, (255, 255, 100, aura_alpha), (40, 40), 30)
-                    pygame.draw.circle(aura_surf, (255, 200, 50, aura_alpha // 2), (40, 40), 40)
-                    pygame.draw.circle(aura_surf, (255, 150, 0, aura_alpha // 3), (40, 40), 50)
-                    self.screen.blit(aura_surf, (int(self.player.x - 40 - curr_cx), int(self.player.y - 70 - curr_cy)))
+
 
             if self.portal:
                 self.portal.draw(self.screen, curr_cx, curr_cy)
@@ -1322,7 +1586,8 @@ class Game:
             self.hud.draw(self.screen, hp, PLAYER_MAX_HP, mana, PLAYER_MAX_MANA,
                           self.player.super_meter if self.player else 0, 100,
                           self.current_wave, self.score, self.game_state,
-                          getattr(self, 'continue_timer', 0))
+                          getattr(self, 'continue_timer', 0),
+                          self.best_score, self.best_wave)
 
             # Cinematic Boss UI
             if self.game_state == "boss_intro":

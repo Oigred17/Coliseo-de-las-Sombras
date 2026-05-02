@@ -1,5 +1,6 @@
 # ── Clase del jugador ──
 # Cada frame del player es 120x80 px en el spritesheet original
+import os
 import pygame
 from settings import *
 from spritesheet import load_spritesheet
@@ -17,6 +18,8 @@ class Player:
         self.vy = 0.0
         self.facing_right = True
         self.on_ground = False
+        self.healing_glow = False
+        self.healing_timer = 0
         self.hp = PLAYER_MAX_HP
         self.mana = PLAYER_MAX_MANA
         self.super_meter = 0.0 # Medidor de Super
@@ -45,6 +48,8 @@ class Player:
 
         # Animaciones - frame size 120x80, auto-detect frame count
         S = PLAYER_SCALE
+        
+        death_frames = load_spritesheet("Player/_Death.png", PF_W, PF_H, 0, S)
         self.animations = {
             "idle":   load_spritesheet("Player/_Idle.png", PF_W, PF_H, 0, S),
             "run":    load_spritesheet("Player/_Run.png", PF_W, PF_H, 0, S),
@@ -53,7 +58,8 @@ class Player:
             "attack": load_spritesheet("Player/_Attack.png", PF_W, PF_H, 0, S),
             "dash":   load_spritesheet("Player/_Dash.png", PF_W, PF_H, 0, S),
             "hit":    load_spritesheet("Player/_Hit.png", PF_W, PF_H, 0, S),
-            "death":  load_spritesheet("Player/_Death.png", PF_W, PF_H, 0, S),
+            "death":  death_frames,
+            "revive": death_frames,  # Revive usa los frames de death en reversa
             "wall":   load_spritesheet("Player/_WallSlide.png", PF_W, PF_H, 0, S),
             "crouch": load_spritesheet("Player/_CrouchAll.png", PF_W, PF_H, 0, S),
             "roll":   load_spritesheet("Player/_Roll.png", PF_W, PF_H, 0, S),
@@ -295,7 +301,7 @@ class Player:
                 self.frame_index = len(frames) - 1
         elif self.state == "revive":
             death_len = len(self.animations["death"])
-            self.frame_index -= self.anim_speed
+            self.frame_index -= self.anim_speed * 2
             if self.frame_index <= 0:
                 self.frame_index = 0
                 self.state = "idle"
@@ -336,7 +342,17 @@ class Player:
                 img.set_alpha(100)
 
         # Centrar sprite en la posición del personaje
-        # El personaje se dibuja con su centro-inferior en (self.x, self.y)
         draw_x = self.x - img.get_width() // 2 - camera_x
         draw_y = self.y - img.get_height() - camera_y
+        
+        # Efecto de resplandor de curación
+        if self.healing_glow:
+            import math
+            t = pygame.time.get_ticks()
+            # Pulso de luz verde
+            glow_alpha = int(100 + 100 * math.sin(t / 100.0))
+            glow_surf = img.copy()
+            glow_surf.fill((100, 255, 100, glow_alpha), special_flags=pygame.BLEND_RGBA_MULT)
+            surface.blit(glow_surf, (draw_x, draw_y), special_flags=pygame.BLEND_RGB_ADD)
+
         surface.blit(img, (draw_x, draw_y))

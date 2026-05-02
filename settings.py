@@ -68,21 +68,35 @@ POTIONMASTER_ATTACK_RANGE = 200
 POTIONMASTER_DETECT_RANGE = 400
 
 EAGLE_HP = 2
-EAGLE_SPEED = 3.5
+EAGLE_SPEED = 3.0
 EAGLE_DAMAGE = 1
 EAGLE_ATTACK_RANGE = 50
 EAGLE_DETECT_RANGE = 400
 
+EAGLE_DETECT_RANGE = 400
+
+GHOST_HP = 4
+GHOST_SPEED = 2.5
+GHOST_DAMAGE = 2
+GHOST_ATTACK_RANGE = 50
+GHOST_DETECT_RANGE = 400
+
+PIRANHA_HP = 5
+PIRANHA_SPEED = 0
+PIRANHA_DAMAGE = 2
+PIRANHA_ATTACK_RANGE = 400
+PIRANHA_DETECT_RANGE = 500
+
 # Oleadas
 WAVES = [
-    {"grunts": 1, "commanders": 0, "guardians": 0, "potionmasters": 0, "eagles": 1},
-    {"grunts": 3, "commanders": 1, "guardians": 1, "potionmasters": 1, "eagles": 1},
+    {"grunts": 1, "commanders": 0, "guardians": 0, "potionmasters": 0, "eagles": 1, "ghosts": 0, "piranhas": 0},
+    {"grunts": 3, "commanders": 1, "guardians": 1, "potionmasters": 1, "eagles": 1, "ghosts": 1, "piranhas": 0},
     {"boss": "demon_slime"},
-    {"grunts": 3, "commanders": 1, "guardians": 1, "potionmasters": 2, "eagles": 2},
-    {"grunts": 4, "commanders": 2, "guardians": 2, "potionmasters": 2, "eagles": 2},
+    {"grunts": 3, "commanders": 1, "guardians": 1, "potionmasters": 1, "eagles": 2, "ghosts": 2, "piranhas": 1},
+    {"grunts": 4, "commanders": 2, "guardians": 2, "potionmasters": 2, "eagles": 2, "ghosts": 2, "piranhas": 2},
     {"boss": "golem"},
-    {"grunts": 5, "commanders": 3, "guardians": 3, "potionmasters": 3, "eagles": 3},
-    {"grunts": 6, "commanders": 3, "guardians": 3, "potionmasters": 4, "eagles": 4},
+    {"grunts": 5, "commanders": 3, "guardians": 3, "potionmasters": 3, "eagles": 3, "ghosts": 3, "piranhas": 3},
+    {"grunts": 6, "commanders": 3, "guardians": 3, "potionmasters": 4, "eagles": 4, "ghosts": 4, "piranhas": 4},
     {"boss": "frost_guardian"},
 ]
 
@@ -101,12 +115,14 @@ KEY_PARRY = pygame.K_u
 # Controles mando (Xbox layout)
 JOY_JUMP = 0       # A
 JOY_ATTACK = 2     # X
-JOY_DASH = 1       # B
-JOY_CAST = 5       # RB
-JOY_HEAL = 6       # Cambiado para dejar LB libre
-JOY_CROUCH = 7     # Antes era Y, ahora Start
-JOY_PARRY = 3      # Ahora es Y
-JOY_SUPER = 4      # LB para el Super
+JOY_MAGIC = 1      # B (Pulsar)
+JOY_HEAL = 1       # B (Mantener)
+JOY_SUPER2 = 5     # RB (Nueva Super)
+JOY_SUPER = 4      # LB (Súper original)
+JOY_DASH_AXIS = 5  # RT (Trigger Derecho)
+JOY_RT_THRESHOLD = 0.5
+JOY_CROUCH = 7     # Start
+JOY_PARRY = 3      # Y
 JOY_DEADZONE = 0.25
 
 # Boss configuration

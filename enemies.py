@@ -1,4 +1,5 @@
 # ── Enemigos del Coliseo ──
+import os
 import pygame
 import random
 from settings import *
@@ -113,8 +114,8 @@ class EnemyBase:
             return pygame.Rect(r.centerx, r.y + 10, w, r.height - 20)
         return pygame.Rect(r.centerx - w, r.y + 10, w, r.height - 20)
 
-    def take_damage(self, dmg, parry=False):
-        if self.i_frames > 0 or not self.alive:
+    def take_damage(self, dmg, parry=False, ignore_iframes=False):
+        if (self.i_frames > 0 and not ignore_iframes) or not self.alive:
             return False
         
         if parry and self.can_parry:
@@ -208,15 +209,16 @@ class EnemyBase:
         for p in platforms:
             if r.colliderect(p):
                 if self.vx > 0:
-                    self.x = p.left - self.width // 2
+                    self.x -= self.vx
                     self.patrol_dir = -1
-                    if self.on_ground and p.top < self.y:
-                        self.vy = -20 # Salto al chocar con obstáculo
+                    if self.on_ground and p.top < self.y and p.height > 20:
+                        self.vy = -12 
                 elif self.vx < 0:
-                    self.x = p.right + self.width // 2
+                    self.x -= self.vx
                     self.patrol_dir = 1
-                    if self.on_ground and p.top < self.y:
-                        self.vy = -20 # Salto al chocar
+                    if self.on_ground and p.top < self.y and p.height > 20:
+                        self.vy = -12 
+
 
         # Mover Y
         self.y += self.vy
@@ -381,21 +383,21 @@ class Guardian(EnemyBase):
         self.width = 30 * S
         self.height = 35 * S
 
-    def take_damage(self, dmg, source_x=None, parry=False):
+    def take_damage(self, dmg, source_x=None, parry=False, ignore_iframes=False):
         if parry and self.can_parry and self.state != "death":
             self.vx = -10 if self.facing_right else 10
             self.vy = -7
             self.i_frames = 25
             return False
         
-        if self.i_frames > 0 or not self.alive:
+        if (self.i_frames > 0 and not ignore_iframes) or not self.alive:
             return False
         if source_x is not None:
             if (self.facing_right and source_x > self.x) or (not self.facing_right and source_x < self.x):
                 self.vx = -4 if self.facing_right else 4
                 self.vy = -3
                 return False
-        return super().take_damage(dmg)
+        return super().take_damage(dmg, ignore_iframes=ignore_iframes)
 
 
 class Potionmaster(EnemyBase):
@@ -429,24 +431,34 @@ class Potionmaster(EnemyBase):
             self.has_thrown = False
 
 
-class Eagle(EnemyBase):
-    """Águila voladora."""
+class FlyingEye(EnemyBase):
+    """Demonio Ojo Volador."""
     def __init__(self, x, y):
         super().__init__(x, y, EAGLE_HP, EAGLE_SPEED, EAGLE_DAMAGE,
                          EAGLE_ATTACK_RANGE, EAGLE_DETECT_RANGE, ENEMY_SCALE)
         self.y_offset = 0
         S = self.scale
-        FW, FH = 40, 41
-        base = "Enemies/eagle/"
-        idle_anim = load_spritesheet(f"{base}dive attack/spritesheet.png", FW, FH, 0, S)
-        hurt_anim = load_spritesheet(f"{base}hurt/spritesheet.png", FW, FH, 0, S)
+        
+        base = "Enemies/flying-eye-demon/Sprites/flying-eye-demon"
+        anim = []
+        for i in range(1, 9):
+            try:
+                full_path = os.path.join(SPRITES_DIR, f"{base}{i}.png")
+                img = pygame.image.load(full_path).convert_alpha()
+                scaled = pygame.transform.scale(img, (int(img.get_width() * S), int(img.get_height() * S)))
+                anim.append(scaled)
+            except:
+                anim.append(pygame.Surface((1,1)))
+
         self.animations = {
-            "idle":   idle_anim,
-            "run":    idle_anim,
-            "attack": idle_anim,
-            "hurt":   hurt_anim,
-            "death":  hurt_anim,
+            "idle":   anim,
+            "run":    anim,
+            "attack": anim,
+            "hurt":   anim,
+            "death":  anim,
         }
+        self.width = 40 * S * 0.7
+        self.height = 30 * S * 0.5
         self.y_base = y
         self.vy = 0 # Vuelo
 
@@ -506,47 +518,145 @@ class Eagle(EnemyBase):
         self._update_animation()
 
 
+
+class Ghost(EnemyBase):
+    """Fantasma que flota hacia el jugador."""
+    def __init__(self, x, y):
+        super().__init__(x, y, GHOST_HP, GHOST_SPEED, GHOST_DAMAGE,
+                         GHOST_ATTACK_RANGE, GHOST_DETECT_RANGE, ENEMY_SCALE)
+        self.y_offset = 0
+        self.sprite_faces_left = True
+        S = self.scale
+        FW, FH = 64, 80
+        base = "Enemies/Ghost-Files/Spritesheets/"
+        self.animations = {
+            "idle":   load_spritesheet(f"{base}ghost-Idle.png", FW, FH, 0, S),
+            "run":    load_spritesheet(f"{base}ghost-Chase.png", FW, FH, 0, S),
+            "attack": load_spritesheet(f"{base}ghost-Shriek.png", FW, FH, 0, S),
+            "hurt":   load_spritesheet(f"{base}ghost-Vanish.png", FW, FH, 0, S),
+            "death":  load_spritesheet(f"{base}ghost-Vanish.png", FW, FH, 0, S),
+        }
+        self.width = 30 * S
+        self.height = 40 * S
+        self.vy = 0 
+
+    def update(self, player, platforms):
+        if not self.alive:
+            self.vy += 0.5
+            self.y += self.vy
+            self._update_animation()
+            if int(self.frame_index) >= len(self.animations.get("death", [None])) - 1:
+                self.death_done = True
+            return
+
+        super().update(player, platforms)
+        if self.alive:
+            # Sobrescribir gravedad, vuela directo
+            self.vy = 0
+            dy = player.y - self.y
+            if abs(dy) > 10:
+                self.y += (1 if dy > 0 else -1) * self.speed * 0.5
+
+
+class Piranha(EnemyBase):
+    """Planta piraña que dispara."""
+    def __init__(self, x, y):
+        super().__init__(x, y, PIRANHA_HP, PIRANHA_SPEED, PIRANHA_DAMAGE,
+                         PIRANHA_ATTACK_RANGE, PIRANHA_DETECT_RANGE, ENEMY_SCALE)
+        self.y_offset = 0
+        S = self.scale
+        base = "Enemies/piranha/"
+        
+        def load_seq(folder, prefix, frames):
+            anim = []
+            for i in range(1, frames+1):
+                try:
+                    full = os.path.join(SPRITES_DIR, f"{base}{folder}/sprites/{prefix}{i}.png")
+                    img = pygame.image.load(full).convert_alpha()
+                    scaled = pygame.transform.scale(img, (int(img.get_width() * S), int(img.get_height() * S)))
+                    anim.append(scaled)
+                except:
+                    anim.append(pygame.Surface((1,1)))
+            return anim
+
+        shoot_anim = load_seq("shooting", "piranha-plant-shoot", 4)
+        hurt_anim = load_seq("hurt", "piranha-plant-hurt", 8)
+
+        self.animations = {
+            "idle":   shoot_anim[:1],
+            "run":    shoot_anim[:1],
+            "attack": shoot_anim,
+            "hurt":   hurt_anim,
+            "death":  hurt_anim,
+        }
+        self.width = 30 * S
+        self.height = 40 * S
+        self.has_thrown = False
+        self.melee_attack_enabled = False
+
+    def update(self, player, platforms):
+        self.vx = 0 
+        super().update(player, platforms)
+        if self.state == "attack":
+            mid_frame = len(self.animations["attack"]) // 2
+            if int(self.frame_index) == mid_frame and not self.has_thrown:
+                self.has_thrown = True
+                self.attack_hit = True 
+        else:
+            self.has_thrown = False
+
+
 class BossBase(EnemyBase):
     """Clase base para los Jefes."""
     def __init__(self, x, y, hp, speed, damage, atk_range, detect_range, scale):
         super().__init__(x, y, hp, speed, damage, atk_range, detect_range, scale)
         self.is_boss = True
+        self.special_fired_this_frame = False
 
 
 class FrostGuardian(BossBase):
     """Jefe: Guardián de Escarcha."""
     def __init__(self, x, y):
-        # Reducir HP y daño para el primer jefe
-        super().__init__(x, y, BOSS_HP * 0.7, BOSS_SPEED * 1.1, BOSS_DAMAGE - 1, 
-                         BOSS_ATTACK_RANGE * 0.8, BOSS_DETECT_RANGE, 3.0)
-        self.y_offset = 0
+        # BUFF: Más HP, más velocidad y más daño
+        super().__init__(x, y, BOSS_HP * 1.5, BOSS_SPEED * 1.4, BOSS_DAMAGE + 1, 
+                         BOSS_ATTACK_RANGE * 1.2, BOSS_DETECT_RANGE, 3.2)
         S = self.scale
         FW, FH = 192, 128
+        # El sprite tiene 18px de padding abajo (pies en fila 109 de 128)
+        # y_offset positivo empuja hacia abajo para que los pies toquen el suelo
+        self.y_offset = 57
+        self.sprite_faces_left = True
         base = "Boss/Frost_Guardian_FREE_v1.0/frost_guardian_free_192x128_SpriteSheet.png"
         
         full_sheet = load_spritesheet(base, FW, FH, 0, S)
 
-        # Construir animaciones de forma robusta, incluso si el sheet tiene menos frames de los esperados.
+        # El spritesheet está organizado por FILAS (16 cols x 5 rows):
+        # Fila 0: Idle (6 frames)   -> indices 0-5
+        # Fila 1: Run (10 frames)   -> indices 16-25
+        # Fila 2: Attack (14 frames)-> indices 32-45
+        # Fila 3: Hurt (7 frames)   -> indices 48-54
+        # Fila 4: Death (16 frames) -> indices 64-79
+        COLS = 16
         total = len(full_sheet)
-        def _slice(start, end):
-            return full_sheet[start:min(end, total)]
+        def _row_slice(row, count):
+            start = row * COLS
+            return full_sheet[start:min(start + count, total)]
         def _ensure(frames):
             if frames and len(frames) > 0:
                 return frames
-            # Placeholder si falta algún frame
-            surf = pygame.Surface((FW, FH), pygame.SRCALPHA)
+            surf = pygame.Surface((int(FW * S), int(FH * S)), pygame.SRCALPHA)
             surf.fill((255, 0, 255, 180))
             return [surf]
         self.animations = {
-            # Si el sheet trae menos frames, devolvemos frames de reserva para evitar que la animación se rompa
-            "idle":   _ensure(_slice(0, 6)),
-            "run":    _ensure(_slice(6, 16)),
-            "attack": _ensure(_slice(16, 31)),
-            "hurt":   _ensure(_slice(31, 37)),
-            "death":  _ensure(_slice(37, 53)),
+            "idle":   _ensure(_row_slice(0, 6)),
+            "run":    _ensure(_row_slice(1, 10)),
+            "attack": _ensure(_row_slice(2, 14)),
+            "hurt":   _ensure(_row_slice(3, 7)),
+            "death":  _ensure(_row_slice(4, 16)),
         }
         self.width = 50 * S
         self.height = 70 * S
+        self.anim_speed = 0.15
         self.phase = 1
         self.special_cooldown = 0
         self.current_attack_type = "slash"
@@ -564,13 +674,20 @@ class FrostGuardian(BossBase):
             
         # Elegir habilidad solo al iniciar el ataque
         if self.state == "attack" and self.last_state != "attack":
-            pool = ["ice_bolt", "frost_nova", "slash", "ice_bolt", "frost_nova"] # Pesos
+            pool = ["ice_bolt", "frost_nova", "slash", "ice_bolt", "frost_nova", "ice_shards"]
             if self.phase == 2:
-                pool += ["blizzard_dash", "ice_rain", "ice_rain"]
+                pool += ["blizzard_dash", "ice_rain", "ice_rain", "triple_bolt"]
             self.current_attack_type = random.choice(pool)
             
         self.last_state = self.state
         super().update(player, platforms)
+
+        # En Fase 2, puede lanzar proyectiles extra mientras hace otras cosas
+        if self.phase == 2 and self.special_cooldown <= 0:
+            if random.random() < 0.02: # 2% chance per frame
+                self.special_type = "ice_bolt"
+                self.special_cooldown = 120
+
         
         if self.state == "attack":
             frame = int(self.frame_index)
@@ -580,6 +697,10 @@ class FrostGuardian(BossBase):
                 self.special_type = "frost_nova"
             elif self.current_attack_type == "ice_rain" and frame == 10:
                 self.special_type = "ice_rain"
+            elif self.current_attack_type == "ice_shards" and frame == 8:
+                self.special_type = "ice_shards"
+            elif self.current_attack_type == "triple_bolt" and frame == 5:
+                self.special_type = "triple_bolt"
             else:
                 self.special_type = None
         else:
@@ -591,23 +712,27 @@ class Golem(BossBase):
     def __init__(self, x, y):
         super().__init__(x, y, BOSS_HP * 1.5, BOSS_SPEED * 0.8, BOSS_DAMAGE + 1, 
                          BOSS_ATTACK_RANGE * 1.5, BOSS_DETECT_RANGE, 3.5)
-        self.y_offset = 12 * self.scale
         S = self.scale
+        # Los frames del Golem son 90x64 (NO 64x64)
+        # Contenido visible ~38px alto, centrado en la mitad derecha del frame
+        FW, FH = 90, 64
+        GOLEM_SCALE = 4.0  # Ajustado para el nuevo tamaño de frame
+        self.y_offset = 0  # bottom_pad = 0, pies al final del frame
         base = "Boss/Golems_Free_Version/Golem_1/Blue/No_Swoosh_VFX/"
         self.animations = {
-            "idle":   load_spritesheet(f"{base}Golem_1_idle.png", 64, 64, 0, S),
-            "run":    load_spritesheet(f"{base}Golem_1_walk.png", 64, 64, 0, S),
-            "attack": load_spritesheet(f"{base}Golem_1_attack.png", 64, 64, 0, S),
-            "hurt":   load_spritesheet(f"{base}Golem_1_hurt.png", 64, 64, 0, S),
-            "death":  load_spritesheet(f"{base}Golem_1_die.png", 64, 64, 0, S),
+            "idle":   load_spritesheet(f"{base}Golem_1_idle.png", FW, FH, 8, GOLEM_SCALE),
+            "run":    load_spritesheet(f"{base}Golem_1_walk.png", FW, FH, 10, GOLEM_SCALE),
+            "attack": load_spritesheet(f"{base}Golem_1_attack.png", FW, FH, 11, GOLEM_SCALE),
+            "hurt":   load_spritesheet(f"{base}Golem_1_hurt.png", FW, FH, 4, GOLEM_SCALE),
+            "death":  load_spritesheet(f"{base}Golem_1_die.png", FW, FH, 13, GOLEM_SCALE),
         }
-        self.width = 55 * S 
-        self.height = 60 * S
+        self.width = 40 * GOLEM_SCALE * 0.5
+        self.height = 38 * GOLEM_SCALE * 0.7
         self.phase = 1
         self.special_cooldown = 0
         self.current_attack_type = "slam"
         self.last_state = "idle"
-        self.anim_speed = 0.12
+        self.anim_speed = 0.15  # Velocidad fluida para que se vean bien las animaciones
         self.charge_timer = 0
         self.sprite_faces_left = False
         self.i_frames = 0
@@ -615,6 +740,19 @@ class Golem(BossBase):
         self.stomp_timer = 0
         self.pillar_cooldown = 0
         self.rolling_cooldown = 0
+        self.garden_cooldown = 0
+        S2 = 3.5  # Escala fija para decoraciones de jardín
+        garden_path = "Sprites/Esecenarios/Garden Decorations.png"
+        garden_sheet = pygame.image.load(garden_path).convert_alpha()
+        gw, gh = 32, 32
+        self.garden_sprites = []
+        for row in range(3):
+            for col in range(7):
+                x = col * 32
+                y = row * 32
+                if x + gw <= garden_sheet.get_width() and y + gh <= garden_sheet.get_height():
+                    sprite = garden_sheet.subsurface(x, y, gw, gh)
+                    self.garden_sprites.append(pygame.transform.scale(sprite, (int(gw * S2), int(gh * S2))))
 
     def update(self, player, platforms):
         if self.hp < self.max_hp // 2 and self.phase == 1:
@@ -629,11 +767,13 @@ class Golem(BossBase):
             self.pillar_cooldown -= 1
         if self.meteor_cooldown > 0:
             self.meteor_cooldown -= 1
+        if self.garden_cooldown > 0:
+            self.garden_cooldown -= 1
 
         if self.state == "attack" and self.last_state != "attack":
             pool = ["rock_throw", "earthquake", "slam", "rock_throw", "earthquake"]
             if self.phase == 2:
-                pool += ["rolling_charge", "stone_pillar", "ground_slam", "ground_slam", "meteor_shower"]
+                pool += ["rolling_charge", "stone_pillar", "ground_slam", "ground_slam", "meteor_shower", "garden_drop"]
             self.current_attack_type = random.choice(pool)
 
         self.last_state = self.state
@@ -655,6 +795,8 @@ class Golem(BossBase):
                 self.special_type = "slam"
             elif self.current_attack_type == "meteor_shower" and frame == 3:
                 self.special_type = "meteor_shower"
+            elif self.current_attack_type == "garden_drop" and frame == 4:
+                self.special_type = "garden_drop"
             else:
                 self.special_type = None
         else:
@@ -716,6 +858,7 @@ class DemonSlime(BossBase):
             if self.phase == 2:
                 pool += ["shadow_burst", "triple_fire", "shadow_burst", "triple_fire"]
             self.current_attack_type = random.choice(pool)
+            self.special_fired_this_frame = False  # Reset para nueva habilidad
             
         self.last_state = self.state
         super().update(player, platforms)
