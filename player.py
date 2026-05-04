@@ -36,6 +36,11 @@ class Player:
         self.attacking = False
         self.attack_timer = 0
         self.attack_hit = False
+        
+        # Sistema de Combos
+        self.combo_count = 0
+        self.combo_timer = 0
+        self.combo_window = 40  # Frames entre ataques para contar como combo
 
         # Parry
         self.parrying = False
@@ -182,6 +187,13 @@ class Player:
 
         if self.i_frames > 0:
             self.i_frames -= 1
+        
+        # Actualizar timer de combo
+        if self.combo_timer > 0:
+            self.combo_timer -= 1
+        else:
+            self.combo_count = 0  # Resetear combo si pasa mucho tiempo
+        
         if self.dash_cooldown > 0:
             self.dash_cooldown -= 1
         if self.parry_cooldown > 0:

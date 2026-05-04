@@ -722,7 +722,18 @@ class Game:
             if not enemy.alive:
                 continue
             if atk.colliderect(enemy.rect):
-                hit = enemy.take_damage(PLAYER_ATTACK_DAMAGE)
+                self.player.combo_count += 1
+                self.player.combo_timer = self.player.combo_window
+                
+                # Calcular daño con multiplicador de combo
+                damage = PLAYER_ATTACK_DAMAGE
+                if self.player.combo_count >= 3:
+                    damage = int(PLAYER_ATTACK_DAMAGE * 1.5)  # 50% más de daño
+                    self.hud.show_message(f"COMBO x{self.player.combo_count}!", 30, (255, 200, 100))
+                    self.player.combo_count = 0  # Resetear combo después de usarlo
+                    self.player.combo_timer = 0
+                
+                hit = enemy.take_damage(damage)
                 if hit:
                     if not enemy.alive:
                         self.sounds.play("enemy_death")
@@ -1583,11 +1594,12 @@ class Game:
 
             hp = self.player.hp if self.player else 0
             mana = self.player.mana if self.player else 0
+            combo = self.player.combo_count if self.player else 0
             self.hud.draw(self.screen, hp, PLAYER_MAX_HP, mana, PLAYER_MAX_MANA,
                           self.player.super_meter if self.player else 0, 100,
                           self.current_wave, self.score, self.game_state,
                           getattr(self, 'continue_timer', 0),
-                          self.best_score, self.best_wave)
+                          self.best_score, self.best_wave, combo)
 
             # Cinematic Boss UI
             if self.game_state == "boss_intro":
