@@ -16,6 +16,7 @@ class HUD:
         self.font_title = None
         self.message = ""
         self.message_timer = 0
+        self.message_color = (255, 230, 150)  # Color por defecto del mensaje
 
         # ── Menu state ──
         self.menu_selection = 0       # 0=Jugar, 1=Entrenamiento, 2=Seleccionar Oleada, 3=Controles
@@ -65,9 +66,10 @@ class HUD:
         except:
             self.menu_bg = None
 
-    def show_message(self, text, duration=180):
+    def show_message(self, text, duration=180, color=(255, 230, 150)):
         self.message = text
         self.message_timer = duration
+        self.message_color = color
 
     def update(self):
         if self.message_timer > 0:
@@ -147,7 +149,7 @@ class HUD:
 
         return result
 
-    def draw(self, surface, player_hp, max_hp, player_mana, max_mana, player_super, max_super, wave, score, game_state, continue_timer=0, best_score=0, best_wave=0):
+    def draw(self, surface, player_hp, max_hp, player_mana, max_mana, player_super, max_super, wave, score, game_state, continue_timer=0, best_score=0, best_wave=0, combo_count=0):
         bar_x, bar_y = 20, 20
 
         S = getattr(self, "scale", 2)
@@ -220,13 +222,19 @@ class HUD:
         # Texto de HP numérico (fuera del círculo, más legible)
         hp_text = self.font_small.render(f"{player_hp}/{max_hp}", True, (255, 255, 255))
         surface.blit(hp_text, (bar_x + 10, bar_y + 45 * S))
+        
+        # Contador de combo
+        if combo_count > 0:
+            combo_color = (255, 200, 100) if combo_count < 3 else (255, 100, 100)  # Naranja -> Rojo en combo
+            combo_text = self.font.render(f"COMBO x{combo_count}", True, combo_color)
+            surface.blit(combo_text, (bar_x + 10, bar_y + 70 * S))
 
         # Mensaje central
         if self.message:
             alpha = 255
             if self.message_timer < 30:
                 alpha = int(255 * self.message_timer / 30)
-            msg_surf = self.font_big.render(self.message, True, (255, 230, 150))
+            msg_surf = self.font_big.render(self.message, True, self.message_color)
             msg_surf.set_alpha(alpha)
             mx = SCREEN_WIDTH // 2 - msg_surf.get_width() // 2
             my = SCREEN_HEIGHT // 3
