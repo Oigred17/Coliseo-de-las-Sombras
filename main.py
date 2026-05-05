@@ -21,27 +21,27 @@ class SoundManager:
         # Load important sounds
         try:
             # Player SFX
-            self.sounds["attack"] = pygame.mixer.Sound("Efectos de sonido/SFX/07_human_atk_sword_1.wav")
-            self.sounds["dash"] = pygame.mixer.Sound("Efectos de sonido/SFX/15_human_dash_1.wav")
-            self.sounds["damage"] = pygame.mixer.Sound("Efectos de sonido/SFX/11_human_damage_1.wav")
-            self.sounds["jump"] = pygame.mixer.Sound("Efectos de sonido/SFX/12_human_jump_1.wav")
-            self.sounds["cast"] = pygame.mixer.Sound("Efectos de sonido/SFX/10_human_special_atk_2.wav")
-            self.sounds["heal"] = pygame.mixer.Sound("Efectos de sonido/Level up Pickup (Rpg).wav")
+            self.sounds["attack"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/07_human_atk_sword_1.wav"))
+            self.sounds["dash"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/15_human_dash_1.wav"))
+            self.sounds["damage"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/11_human_damage_1.wav"))
+            self.sounds["jump"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/12_human_jump_1.wav"))
+            self.sounds["cast"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/10_human_special_atk_2.wav"))
+            self.sounds["heal"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Level up Pickup (Rpg).wav"))
             
             # Enemy/Combat SFX
-            self.sounds["enemy_hit"] = pygame.mixer.Sound("Efectos de sonido/SFX/26_sword_hit_1.wav")
-            self.sounds["enemy_death"] = pygame.mixer.Sound("Efectos de sonido/SFX/24_orc_death_spin.wav")
-            self.sounds["parry"] = pygame.mixer.Sound("Efectos de sonido/SFX/20_orc_special_atk.wav")
-            self.sounds["boss_arrival"] = pygame.mixer.Sound("Efectos de sonido/SFX/18_orc_charge.wav")
+            self.sounds["enemy_hit"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/26_sword_hit_1.wav"))
+            self.sounds["enemy_death"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/24_orc_death_spin.wav"))
+            self.sounds["parry"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/20_orc_special_atk.wav"))
+            self.sounds["boss_arrival"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/18_orc_charge.wav"))
             
             # UI/Other
-            self.sounds["victory"] = pygame.mixer.Sound("Efectos de sonido/SFX/10_human_special_atk_1.wav")
-            self.sounds["charged"] = pygame.mixer.Sound("Efectos de sonido/SFX/09_human_charging_1_loop.wav")
-            self.sounds["super"] = pygame.mixer.Sound("Efectos de sonido/SFX/20_orc_special_atk.wav")
-            self.sounds["super2"] = pygame.mixer.Sound("Efectos de sonido/SFX/10_human_special_atk_1.wav")
+            self.sounds["victory"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/10_human_special_atk_1.wav"))
+            self.sounds["charged"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/09_human_charging_1_loop.wav"))
+            self.sounds["super"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/20_orc_special_atk.wav"))
+            self.sounds["super2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/10_human_special_atk_1.wav"))
             
             # Initial Music
-            self.change_music("Efectos de sonido/Music/Goblins_Den_(Regular).wav")
+            self.change_music(resource_path("Efectos de sonido/Music/Goblins_Den_(Regular).wav"))
         except Exception as e:
             print(f"No se pudieron cargar los sonidos: {e}")
 
@@ -645,19 +645,19 @@ class Game:
             if wave["boss"] == "frost_guardian":
                 self.enemies.append(FrostGuardian(ARENA_WIDTH - 200, -200)) # Menos caída
                 self.boss_name = "FROST GUARDIAN"
-                self.sounds.change_music("Efectos de sonido/Music/music boos2.wav")
+                self.sounds.change_music(resource_path("Efectos de sonido/Music/music boos2.wav"))
             elif wave["boss"] == "golem":
                 self.enemies.append(Golem(ARENA_WIDTH - 200, -200))
                 self.boss_name = "STONE GOLEM"
-                self.sounds.change_music("Efectos de sonido/Music/music boos2.wav")
+                self.sounds.change_music(resource_path("Efectos de sonido/Music/music boos2.wav"))
             elif wave["boss"] == "demon_slime":
                 self.enemies.append(DemonSlime(ARENA_WIDTH - 200, -200))
                 self.boss_name = "DEMON SLIME"
-                self.sounds.change_music("Efectos de sonido/Music/music boos1.wav")
+                self.sounds.change_music(resource_path("Efectos de sonido/Music/music boos1.wav"))
             return # Saltamos el resto de la función
         else:
             # Musica de batalla normal
-            self.sounds.change_music("Efectos de sonido/Music/Goblins_Dance_(Battle).wav")
+            self.sounds.change_music(resource_path("Efectos de sonido/Music/Goblins_Dance_(Battle).wav"))
             self.pending_enemies = []
             # Distribuir spawn normal
             spawns = [400, 800, 1200, 1600, 2000, 600, 1400, 1800]

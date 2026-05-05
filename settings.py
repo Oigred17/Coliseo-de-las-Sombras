@@ -1,8 +1,18 @@
 # ── Configuración general del juego ──
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SPRITES_DIR = os.path.join(BASE_DIR, "Sprites")
+import sys
+
+if getattr(sys, 'frozen', False):
+    BASE_DIR = sys._MEIPASS
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def resource_path(relative_path):
+    """Obtiene la ruta absoluta al recurso, compatible con PyInstaller."""
+    return os.path.join(BASE_DIR, relative_path)
+
+SPRITES_DIR = resource_path("Sprites")
 
 # Pantalla
 SCREEN_WIDTH = 1280

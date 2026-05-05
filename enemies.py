@@ -742,7 +742,7 @@ class Golem(BossBase):
         self.rolling_cooldown = 0
         self.garden_cooldown = 0
         S2 = 3.5  # Escala fija para decoraciones de jardín
-        garden_path = "Sprites/Esecenarios/Garden Decorations.png"
+        garden_path = resource_path("Sprites/Esecenarios/Garden Decorations.png")
         garden_sheet = pygame.image.load(garden_path).convert_alpha()
         gw, gh = 32, 32
         self.garden_sprites = []
