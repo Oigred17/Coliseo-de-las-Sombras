@@ -11,6 +11,7 @@ class HUD:
         self.red_ball = None
         self.blue_bar = None
         self.yellow_bar = None
+        self.banner = None
         self.font = None
         self.font_big = None
         self.font_title = None
@@ -65,6 +66,18 @@ class HUD:
             self.menu_bg = pygame.transform.scale(self.menu_bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
         except:
             self.menu_bg = None
+
+        try:
+            self.banner = pygame.image.load(resource_path("banner-universidad-de-la-sierra-sur.png")).convert_alpha()
+            # Escalar si es muy grande (opcional, pero buena práctica)
+            max_w = 300
+            if self.banner.get_width() > max_w:
+                ratio = max_w / self.banner.get_width()
+                new_size = (int(self.banner.get_width() * ratio), int(self.banner.get_height() * ratio))
+                self.banner = pygame.transform.scale(self.banner, new_size)
+            self.banner.set_alpha(160) # Un poco transparente
+        except:
+            self.banner = None
 
     def show_message(self, text, duration=180, color=(255, 230, 150)):
         self.message = text
@@ -228,6 +241,12 @@ class HUD:
             combo_color = (255, 200, 100) if combo_count < 3 else (255, 100, 100)  # Naranja -> Rojo en combo
             combo_text = self.font.render(f"COMBO x{combo_count}", True, combo_color)
             surface.blit(combo_text, (bar_x + 10, bar_y + 70 * S))
+
+        # Banner Universidad (inferior derecha)
+        if self.banner:
+            bx = SCREEN_WIDTH - self.banner.get_width() - 10
+            by = SCREEN_HEIGHT - self.banner.get_height() - 10
+            surface.blit(self.banner, (bx, by))
 
         # Mensaje central
         if self.message:
