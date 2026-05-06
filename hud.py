@@ -23,6 +23,11 @@ class HUD:
         self.menu_selection = 0       # 0=Jugar, 1=Entrenamiento, 2=Seleccionar Oleada, 3=Controles
         self.menu_options = ["JUGAR", "ENTRENAMIENTO", "SELECCIONAR OLEADA", "CONTROLES"]
         self.sub_menu = None          # None, "wave_select", "controls"
+        self.pause_selection = 0
+        self.pause_options = ["RESUMEN", "CONFIGURACIÓN", "VOLVER AL INICIO"]
+        self.pause_sub_menu = None
+        self.settings_selection = 0
+        self.settings_options = ["MÚSICA", "EFECTOS", "VOLVER"]
         self.wave_selection = 0       # Índice de oleada seleccionada
         self.wave_labels = []         # Se llena al init
         self.controls_scroll = 0
@@ -162,7 +167,83 @@ class HUD:
 
         return result
 
-    def draw(self, surface, player_hp, max_hp, player_mana, max_mana, player_super, max_super, wave, score, game_state, continue_timer=0, best_score=0, best_wave=0, combo_count=0):
+    def handle_pause_input(self, input_events, joy, just_pressed_start):
+        result = {"action": None, "dir": 0}
+        up = input_events.get("menu_up", False)
+        down = input_events.get("menu_down", False)
+        left = input_events.get("menu_left", False)
+        right = input_events.get("menu_right", False)
+        confirm = input_events.get("menu_confirm", False) or just_pressed_start
+        back = input_events.get("menu_back", False)
+
+        if joy:
+            try:
+                if joy.get_numhats() > 0:
+                    hat = joy.get_hat(0)
+                    if not hasattr(self, '_last_hat_pause'):
+                        self._last_hat_pause = (0, 0)
+                    if hat[1] == 1 and self._last_hat_pause[1] != 1:
+                        up = True
+                    elif hat[1] == -1 and self._last_hat_pause[1] != -1:
+                        down = True
+                    self._last_hat_pause = hat
+
+                axis_y = joy.get_axis(1)
+                if not hasattr(self, '_last_axis_y_pause'):
+                    self._last_axis_y_pause = 0.0
+                if axis_y < -0.5 and self._last_axis_y_pause >= -0.5:
+                    up = True
+                elif axis_y > 0.5 and self._last_axis_y_pause <= 0.5:
+                    down = True
+                self._last_axis_y_pause = axis_y
+
+                axis_x = joy.get_axis(0)
+                if not hasattr(self, '_last_axis_x_pause'):
+                    self._last_axis_x_pause = 0.0
+                if axis_x < -0.5 and self._last_axis_x_pause >= -0.5:
+                    left = True
+                elif axis_x > 0.5 and self._last_axis_x_pause <= 0.5:
+                    right = True
+                self._last_axis_x_pause = axis_x
+
+                if joy.get_button(1):
+                    back = True
+            except:
+                pass
+
+        if getattr(self, "pause_sub_menu", None) == "settings":
+            if up:
+                self.settings_selection = (self.settings_selection - 1) % len(self.settings_options)
+            elif down:
+                self.settings_selection = (self.settings_selection + 1) % len(self.settings_options)
+            elif left or right:
+                if self.settings_selection == 0:
+                    result = {"action": "vol_music", "dir": -1 if left else 1}
+                elif self.settings_selection == 1:
+                    result = {"action": "vol_sfx", "dir": -1 if left else 1}
+            elif confirm or back:
+                if self.settings_selection == 2 or back:
+                    self.pause_sub_menu = None
+                    self.settings_selection = 0
+            return result
+
+        if up:
+            self.pause_selection = (self.pause_selection - 1) % len(self.pause_options)
+        elif down:
+            self.pause_selection = (self.pause_selection + 1) % len(self.pause_options)
+        elif confirm:
+            if self.pause_selection == 0:
+                result = {"action": "resume", "dir": 0}
+            elif self.pause_selection == 1:
+                self.pause_sub_menu = "settings"
+            elif self.pause_selection == 2:
+                result = {"action": "menu", "dir": 0}
+                
+        return result
+
+    def draw(self, surface, player_hp, max_hp, player_mana, max_mana, player_super, max_super, wave, score, game_state, continue_timer=0, best_score=0, best_wave=0, combo_count=0, music_vol=0.6, sfx_vol=0.5):
+        self._music_vol = music_vol
+        self._sfx_vol = sfx_vol
         bar_x, bar_y = 20, 20
 
         S = getattr(self, "scale", 2)
@@ -182,8 +263,8 @@ class HUD:
             w = int(self.blue_bar.get_width() * ratio_mana)
             if w > 0:
                 sub = self.blue_bar.subsurface((0, 0, w, self.blue_bar.get_height()))
-                bb_x = bar_x + (69 * S)
-                bb_y = bar_y + (35 * S)
+                bb_x = bar_x + (63 * S)
+                bb_y = bar_y + (54 * S)
                 surface.blit(sub, (bb_x, bb_y))
 
         # Barra Amarilla (Super) - Slot superior liso
@@ -192,8 +273,8 @@ class HUD:
             w = int(self.yellow_bar.get_width() * ratio_super)
             if w > 0:
                 sub = self.yellow_bar.subsurface((0, 0, w, self.yellow_bar.get_height()))
-                bb_x = bar_x + (62 * S)
-                bb_y = bar_y + (20 * S)
+                bb_x = bar_x + (65 * S)
+                bb_y = bar_y + (47 * S)
                 surface.blit(sub, (bb_x, bb_y))
 
         # Dibujar el marco de la barra de vida POR ENCIMA
@@ -265,7 +346,7 @@ class HUD:
         elif game_state == "wave_intro":
             pass
         elif game_state == "paused":
-            self._draw_pause(surface)
+            self._draw_pause(surface, music_vol=getattr(self, '_music_vol', 0.6), sfx_vol=getattr(self, '_sfx_vol', 0.5))
         elif game_state == "gameover":
             self._draw_gameover(surface, continue_timer, score, best_score)
         elif game_state == "victory":
@@ -523,16 +604,104 @@ class HUD:
         nav = self.font_small.render("ENTER/A o ESC/B para volver", True, (130, 120, 110))
         surface.blit(nav, (SCREEN_WIDTH // 2 - nav.get_width() // 2, SCREEN_HEIGHT - 60))
 
-    def _draw_pause(self, surface):
+    def _draw_pause(self, surface, music_vol=0.6, sfx_vol=0.5):
         overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
         overlay.fill((0, 0, 0, 180))
         surface.blit(overlay, (0, 0))
 
-        pause_txt = self.font_title.render("PAUSA", True, (255, 255, 255))
-        surface.blit(pause_txt, (SCREEN_WIDTH // 2 - pause_txt.get_width() // 2, 250))
-        
-        info = self.font.render("Presiona START o ENTER para continuar", True, (200, 200, 200))
-        surface.blit(info, (SCREEN_WIDTH // 2 - info.get_width() // 2, 350))
+        if getattr(self, "pause_sub_menu", None) == "settings":
+            title_txt = self.font_title.render("CONFIGURACIÓN", True, (255, 255, 255))
+            surface.blit(title_txt, (SCREEN_WIDTH // 2 - title_txt.get_width() // 2, 150))
+            
+            start_y = 280
+            for i, option in enumerate(self.settings_options):
+                is_selected = (i == self.settings_selection)
+                offset_x = int(8 * math.sin(self.menu_anim_t / 15.0)) if is_selected else 0
+                color = (255, 220, 100) if is_selected else (180, 170, 160)
+                bg_alpha = 60 if is_selected else 20
+                
+                item_w = 400
+                item_h = 50
+                item_x = SCREEN_WIDTH // 2 - item_w // 2 + offset_x
+                item_y = start_y + i * 70
+                
+                bg_surf = pygame.Surface((item_w, item_h), pygame.SRCALPHA)
+                if is_selected:
+                    for dy in range(item_h):
+                        alpha = int(bg_alpha * (1 - dy / item_h))
+                        pygame.draw.line(bg_surf, (200, 170, 80, alpha), (0, dy), (item_w, dy))
+                    pygame.draw.rect(bg_surf, (255, 200, 80, 120), (0, 0, item_w, item_h), 2)
+                else:
+                    bg_surf.fill((40, 35, 50, bg_alpha))
+                    pygame.draw.rect(bg_surf, (80, 70, 90, 60), (0, 0, item_w, item_h), 1)
+
+                surface.blit(bg_surf, (item_x, item_y))
+
+                if is_selected:
+                    arrow = self.font_menu.render("►", True, (255, 200, 80))
+                    surface.blit(arrow, (item_x - 35, item_y + 5))
+
+                txt = self.font_menu.render(option, True, color)
+                if i < 2:
+                    surface.blit(txt, (item_x + 20, item_y + 8))
+                    vol = music_vol if i == 0 else sfx_vol
+                    vol_txt = self.font_menu.render(f"{int(vol * 100)}%", True, color)
+                    surface.blit(vol_txt, (item_x + item_w - vol_txt.get_width() - 20, item_y + 8))
+                    
+                    if is_selected:
+                        nav_arrows = self.font_small.render("◄   ►", True, color)
+                        surface.blit(nav_arrows, (item_x + item_w + 10, item_y + 15))
+                else:
+                    surface.blit(txt, (item_x + item_w // 2 - txt.get_width() // 2, item_y + 8))
+
+            nav_y = SCREEN_HEIGHT - 60
+            nav = self.font_small.render("W/S para navegar  •  A/D para ajustar  •  ENTER para volver", True, (130, 120, 110))
+            surface.blit(nav, (SCREEN_WIDTH // 2 - nav.get_width() // 2, nav_y))
+            
+        else:
+            pause_txt = self.font_title.render("PAUSA", True, (255, 255, 255))
+            surface.blit(pause_txt, (SCREEN_WIDTH // 2 - pause_txt.get_width() // 2, 150))
+            
+            start_y = 280
+            for i, option in enumerate(self.pause_options):
+                is_selected = (i == self.pause_selection)
+                offset_x = 0
+                if is_selected:
+                    offset_x = int(8 * math.sin(self.menu_anim_t / 15.0))
+                    color = (255, 220, 100)
+                    bg_alpha = 60
+                else:
+                    color = (180, 170, 160)
+                    bg_alpha = 20
+
+                item_w = 400
+                item_h = 50
+                item_x = SCREEN_WIDTH // 2 - item_w // 2 + offset_x
+                item_y = start_y + i * 70
+
+                bg_surf = pygame.Surface((item_w, item_h), pygame.SRCALPHA)
+                if is_selected:
+                    for dy in range(item_h):
+                        alpha = int(bg_alpha * (1 - dy / item_h))
+                        pygame.draw.line(bg_surf, (200, 170, 80, alpha), (0, dy), (item_w, dy))
+                    pygame.draw.rect(bg_surf, (255, 200, 80, 120), (0, 0, item_w, item_h), 2)
+                else:
+                    bg_surf.fill((40, 35, 50, bg_alpha))
+                    pygame.draw.rect(bg_surf, (80, 70, 90, 60), (0, 0, item_w, item_h), 1)
+
+                surface.blit(bg_surf, (item_x, item_y))
+
+                if is_selected:
+                    arrow = self.font_menu.render("►", True, (255, 200, 80))
+                    surface.blit(arrow, (item_x - 35, item_y + 5))
+
+                txt = self.font_menu.render(option, True, color)
+                surface.blit(txt, (item_x + item_w // 2 - txt.get_width() // 2, item_y + 8))
+
+            nav_y = SCREEN_HEIGHT - 60
+            nav = self.font_small.render("W/S o ↑/↓ para navegar  •  ENTER/A para seleccionar", True, (130, 120, 110))
+            surface.blit(nav, (SCREEN_WIDTH // 2 - nav.get_width() // 2, nav_y))
+
 
     def _draw_gameover(self, surface, continue_timer=0, score=0, best_score=0):
         overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)

@@ -15,30 +15,76 @@ from tutorial import TutorialManager
 
 class SoundManager:
     def __init__(self):
-        pygame.mixer.init()
         self.sounds = {}
+        self.music_volume = 0.6
+        self.sfx_volume = 0.5
         self.current_music = None
-        # Load important sounds
+        
         try:
-            # Player SFX
+            pygame.mixer.init()
+            
+            # Player SFX - Multiple variations
             self.sounds["attack"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/07_human_atk_sword_1.wav"))
+            self.sounds["attack2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/07_human_atk_sword_2.wav"))
+            self.sounds["attack3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/07_human_atk_sword_3.wav"))
             self.sounds["dash"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/15_human_dash_1.wav"))
+            self.sounds["dash2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/15_human_dash_2.wav"))
             self.sounds["damage"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/11_human_damage_1.wav"))
+            self.sounds["damage2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/11_human_damage_2.wav"))
+            self.sounds["damage3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/11_human_damage_3.wav"))
             self.sounds["jump"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/12_human_jump_1.wav"))
+            self.sounds["jump2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/12_human_jump_2.wav"))
+            self.sounds["jump3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/12_human_jump_3.wav"))
+            self.sounds["land"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/13_human_jump_land_1.wav"))
+            self.sounds["land2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/13_human_jump_land_2.wav"))
             self.sounds["cast"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/10_human_special_atk_2.wav"))
             self.sounds["heal"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Level up Pickup (Rpg).wav"))
+            self.sounds["death"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/14_human_death_spin.wav"))
+            self.sounds["charge"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/08_human_charge_1.wav"))
+            self.sounds["charge2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/08_human_charge_2.wav"))
+            self.sounds["walk1"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/16_human_walk_stone_1.wav"))
+            self.sounds["walk2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/16_human_walk_stone_2.wav"))
+            self.sounds["walk3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/16_human_walk_stone_3.wav"))
+            self.sounds["sword_slash"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Sword Slash (Rpg).wav"))
+            self.sounds["dagger_combo"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Dagger Basic Attack Combo.wav"))
             
-            # Enemy/Combat SFX
+            # Enemy/Combat SFX - Multiple variations
             self.sounds["enemy_hit"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/26_sword_hit_1.wav"))
+            self.sounds["enemy_hit2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/26_sword_hit_2.wav"))
+            self.sounds["enemy_hit3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/26_sword_hit_3.wav"))
+            self.sounds["sword_miss"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/27_sword_miss_1.wav"))
+            self.sounds["sword_miss2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/27_sword_miss_2.wav"))
+            self.sounds["sword_miss3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/27_sword_miss_3.wav"))
             self.sounds["enemy_death"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/24_orc_death_spin.wav"))
+            self.sounds["enemy_attack"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/17_orc_atk_sword_1.wav"))
+            self.sounds["enemy_attack2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/17_orc_atk_sword_2.wav"))
+            self.sounds["enemy_attack3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/17_orc_atk_sword_3.wav"))
+            self.sounds["enemy_damage"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/21_orc_damage_1.wav"))
+            self.sounds["enemy_damage2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/21_orc_damage_2.wav"))
+            self.sounds["enemy_damage3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/21_orc_damage_3.wav"))
+            self.sounds["enemy_jump"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/22_orc_jump_1.wav"))
+            self.sounds["enemy_jump2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/22_orc_jump_2.wav"))
+            self.sounds["enemy_land"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/23_orc_jump_land.wav"))
+            self.sounds["enemy_walk1"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/25_orc_walk_stone_1.wav"))
+            self.sounds["enemy_walk2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/25_orc_walk_stone_2.wav"))
+            self.sounds["enemy_walk3"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/25_orc_walk_stone_3.wav"))
             self.sounds["parry"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/20_orc_special_atk.wav"))
             self.sounds["boss_arrival"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/18_orc_charge.wav"))
+            self.sounds["boss_charging"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/19_orc_charging_loop.wav"))
+            self.sounds["monster_death"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Monster death (Rpg).wav"))
+            self.sounds["monster_roar"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Monster roar (Rpg).wav"))
             
             # UI/Other
             self.sounds["victory"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/10_human_special_atk_1.wav"))
             self.sounds["charged"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/09_human_charging_1_loop.wav"))
             self.sounds["super"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/20_orc_special_atk.wav"))
             self.sounds["super2"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/10_human_special_atk_1.wav"))
+            self.sounds["menu_select"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/01_chest_open_1.wav"))
+            self.sounds["menu_confirm"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/01_chest_open_3.wav"))
+            self.sounds["menu_back"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/02_chest_close_1.wav"))
+            self.sounds["smoke"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Invisibility Smoke Sound.wav"))
+            self.sounds["npc_voice"] = pygame.mixer.Sound(resource_path("Efectos de sonido/Happi Npc Voice.wav"))
+            self.sounds["crate_open"] = pygame.mixer.Sound(resource_path("Efectos de sonido/SFX/03_crate_open_1.wav"))
             
             # Initial Music
             self.change_music(resource_path("Efectos de sonido/Music/Goblins_Den_(Regular).wav"))
@@ -47,7 +93,20 @@ class SoundManager:
 
     def play(self, name):
         if name in self.sounds:
-            self.sounds[name].set_volume(0.5)
+            self.sounds[name].set_volume(self.sfx_volume)
+            self.sounds[name].play()
+
+    def play_random(self, base_name, count):
+        """Play a random variation of a sound. E.g. play_random('attack', 3) picks attack, attack2, or attack3."""
+        import random
+        n = random.randint(1, count)
+        key = base_name if n == 1 else f"{base_name}{n}"
+        self.play(key)
+
+    def play_vol(self, name, volume_mult=1.0):
+        """Play a sound with a custom volume multiplier."""
+        if name in self.sounds:
+            self.sounds[name].set_volume(min(1.0, self.sfx_volume * volume_mult))
             self.sounds[name].play()
 
     def change_music(self, path):
@@ -55,11 +114,21 @@ class SoundManager:
             return
         try:
             pygame.mixer.music.load(path)
-            pygame.mixer.music.set_volume(0.6)
+            pygame.mixer.music.set_volume(self.music_volume)
             pygame.mixer.music.play(-1)
             self.current_music = path
         except:
             print(f"Error cargando musica: {path}")
+
+    def update_music_volume(self, delta):
+        self.music_volume = max(0.0, min(1.0, self.music_volume + delta))
+        try:
+            pygame.mixer.music.set_volume(self.music_volume)
+        except:
+            pass
+
+    def update_sfx_volume(self, delta):
+        self.sfx_volume = max(0.0, min(1.0, self.sfx_volume + delta))
 
     def play_music(self):
         try:
@@ -638,6 +707,7 @@ class Game:
         
         if "boss" in wave:
             self.game_state = "boss_intro"
+            self.sounds.play("boss_arrival")
             self.boss_intro_timer = 200
             self.enemies = []
             self.pending_enemies = []
@@ -737,8 +807,9 @@ class Game:
                 if hit:
                     if not enemy.alive:
                         self.sounds.play("enemy_death")
+                        self.sounds.play_random("enemy_damage", 3)
                     else:
-                        self.sounds.play("enemy_hit")
+                        self.sounds.play_random("enemy_hit", 3)
                     self.player.attack_hit = True
                     self.player.mana = min(PLAYER_MAX_MANA, self.player.mana + 15)
                     self.player.super_meter = min(100, self.player.super_meter + 8)
@@ -767,16 +838,12 @@ class Game:
                             self._rumble(1.0, 30)
 
                     break  # Solo dañar a un enemigo por cada swing de la espada
-                    for _ in range(20):
-                        self.particles.append(Particle(enemy.x, enemy.y - enemy.height // 2,
-                                                       (255, 100, 255), random.uniform(-5, 5), random.uniform(-5, -1), 45, 6))
-                    for _ in range(10):
-                        self.particles.append(Particle(enemy.x, enemy.y - enemy.height // 2,
-                                                       (255, 255, 100), random.uniform(-3, 3), random.uniform(-3, 0), 30, 4))
-                    self._rumble(1.0, 25)
-                    if random.random() < 0.5:
-                        self.hearts.append(Heart(enemy.x, enemy.y - enemy.height // 2))
-                    break
+
+        # Si el jugador está atacando en el frame activo y no golpeó a nadie aún
+        if not self.player.attack_hit:
+            self.sounds.play_random("sword_miss", 3)
+            self.player.attack_hit = True  # Para evitar que el sonido suene varias veces por frame
+
 
     def _check_parry(self):
         if not self.player.parrying:
@@ -802,8 +869,8 @@ class Game:
 
         # Parry proyectiles tutorial/enemigos
         for p in self.enemy_projectiles:
-            if parry_rect.colliderect(p.attack_rect):
-                p.take_damage(0, parry=True)
+            if parry_rect.colliderect(p.rect):
+                p.life = 0  # Destruye el proyectil
                 self.sounds.play("parry")
                 self.tutorial_parry_success = True
                 for _ in range(20):
@@ -908,14 +975,30 @@ class Game:
                     self._start_tutorial()
 
             elif self.game_state == "paused":
-                if just_pressed_start:
+                pause_result = self.hud.handle_pause_input(input_events, joy, just_pressed_start)
+                if pause_result["action"] == "resume":
                     self.game_state = "playing"
+                elif pause_result["action"] == "vol_music":
+                    self.sounds.update_music_volume(pause_result["dir"] * 0.1)
+                elif pause_result["action"] == "vol_sfx":
+                    self.sounds.update_sfx_volume(pause_result["dir"] * 0.1)
+                elif pause_result["action"] == "menu":
+                    self.game_state = "menu"
+                    self.hud.pause_sub_menu = None
+                    self.player = None
+                    self.enemies.clear()
+                    self.projectiles.clear()
+                    self.enemy_projectiles.clear()
+                    self.particles.clear()
+                    self.homing_waves.clear()
+                    self.sounds.change_music(resource_path("Efectos de sonido/Music/Goblins_Den_(Regular).wav"))
 
             elif self.game_state == "intro_fall":
                 self.player.update(self.arena.platforms)
                 if self.player.on_ground:
                     self._spawn_particles(self.player.x, self.player.y, (150, 150, 150), 40)
                     self._rumble(1.0, 20)
+                    self.sounds.play_random("land", 2)
                     self._start_wave()
 
             elif self.game_state == "wave_intro":
@@ -931,10 +1014,10 @@ class Game:
                 if self.player:
                     # Reproducir sonido de salto y ataque
                     if input_events.get("jump") and (self.player.on_ground or self.player.touching_wall != 0 or self.player.can_double_jump):
-                        self.sounds.play("jump")
+                        self.sounds.play_random("jump", 3)
                     
                     if input_events.get("attack") and not self.player.attacking:
-                        self.sounds.play("attack")
+                        self.sounds.play_random("attack", 3)
 
                 if just_pressed_start:
                     self.game_state = "paused"
@@ -1035,7 +1118,7 @@ class Game:
 
                 if self.player.dashing:
                     if self.player.dash_timer == 18:
-                        self.sounds.play("dash")
+                        self.sounds.play_random("dash", 2)
                     dir_x = -1 if self.player.facing_right else 1
                     self.particles.append(Particle(
                         self.player.x + dir_x * 15, self.player.y - 20,
@@ -1063,17 +1146,30 @@ class Game:
                             e.special_type = None
                     
                     # Efectos de fase 2 para jefes
-                    if getattr(e, "is_boss", False) and getattr(e, "phase", 1) == 2:
-                        if isinstance(e, DemonSlime):
-                            self.particles.append(Particle(e.x + random.randint(-50, 50), e.y - 10, (255, 60, 0), 0, -3, 25, 4))
-                        elif isinstance(e, Golem):
-                            self.particles.append(Particle(e.x + random.randint(-40, 40), e.y, (100, 80, 60), 0, -1, 15, 3))
-                            if random.random() < 0.3:
-                                self._spawn_particles(e.x, e.y, (150, 150, 150), 2)
-                        elif isinstance(e, FrostGuardian):
-                            self.particles.append(Particle(e.x + random.randint(-150, 150), e.y - random.randint(0, 100), (200, 230, 255), -3, 1, 40, 3))
-                        if getattr(e, "current_attack_type", "") == "blizzard_dash":
-                            self.particles.append(Particle(e.x, e.y - 50, (200, 255, 255), -5, 0, 20, 5))
+                    if getattr(e, "is_boss", False):
+                        current_phase = getattr(e, "phase", 1)
+                        last_phase = getattr(e, "last_recorded_phase", 1)
+                        if current_phase > last_phase:
+                            self.sounds.play("monster_roar")
+                            e.last_recorded_phase = current_phase
+                            
+                        current_state = e.state
+                        last_state = getattr(e, "last_recorded_state", "idle")
+                        if current_state == "attack" and last_state != "attack":
+                            self.sounds.play("boss_charging")
+                        e.last_recorded_state = current_state
+
+                        if getattr(e, "phase", 1) == 2:
+                            if isinstance(e, DemonSlime):
+                                self.particles.append(Particle(e.x + random.randint(-50, 50), e.y - 10, (255, 60, 0), 0, -3, 25, 4))
+                            elif isinstance(e, Golem):
+                                self.particles.append(Particle(e.x + random.randint(-40, 40), e.y, (100, 80, 60), 0, -1, 15, 3))
+                                if random.random() < 0.3:
+                                    self._spawn_particles(e.x, e.y, (150, 150, 150), 2)
+                            elif isinstance(e, FrostGuardian):
+                                self.particles.append(Particle(e.x + random.randint(-150, 150), e.y - random.randint(0, 100), (200, 230, 255), -3, 1, 40, 3))
+                            if getattr(e, "current_attack_type", "") == "blizzard_dash":
+                                self.particles.append(Particle(e.x, e.y - 50, (200, 255, 255), -5, 0, 20, 5))
 
                     # Ejecución de habilidades especiales (para todas las fases)
                     if getattr(e, "is_boss", False):
@@ -1106,7 +1202,8 @@ class Game:
                                 self._spawn_particles(e.x, e.y - 40, (80, 0, 150), 60)
                                 for i in range(-2, 3):
                                     self.particles.append(Particle(e.x + i * 40, e.y - 30, (120, 0, 200), random.uniform(-2, 2), -3, 25, 5))
-                                if abs(self.player.x - e.x) < 250: self.player.take_damage(2, e.x)
+                                if abs(self.player.x - e.x) < 250 and self.player.take_damage(2, e.x):
+                                    self.sounds.play_random("damage", 3)
                                 self.camera_shake = 10
                                 self.sounds.play("enemy_hit")
                             elif stype == "earthquake":
@@ -1207,15 +1304,17 @@ class Game:
                                 self.camera_shake = 10
                                 self._spawn_particles(e.x, e.y - 30, (255, 255, 255), 20)
                                 self.sounds.play("dash")
-                            elif stype == "garden_drop":
+                            elif stype == "pillar_drop":
                                 for _ in range(3):
                                     gx = self.player.x + random.randint(-150, 150)
-                                    sprite = random.choice(e.garden_sprites)
-                                    self.enemy_projectiles.append(EnemyEnergyBall(gx, -50, 0, (100, 150, 100)))
+                                    sprite = e.pillar_sprite
+                                    self.enemy_projectiles.append(EnemyEnergyBall(gx, -50, 0, (100, 100, 100)))
                                     self.enemy_projectiles[-1].vy = 10
                                     self.enemy_projectiles[-1].sprite = sprite
-                                    self.enemy_projectiles[-1].is_garden = True
+                                    self.enemy_projectiles[-1].is_garden = True # Mantiene el flag de impacto
                                     self.enemy_projectiles[-1].impact_frame = 0
+                                    self.enemy_projectiles[-1].width = 30
+                                    self.enemy_projectiles[-1].height = 100
                                 self.camera_shake = 10
                                 self.sounds.play("enemy_hit")
 
@@ -1262,7 +1361,8 @@ class Game:
                                 self._spawn_particles(proj.x, proj.y, (100, 150, 100), 20)
                                 self.camera_shake = 5
                                 if abs(self.player.x - proj.x) < 80:
-                                    self.player.take_damage(2, proj.x)
+                                    if self.player.take_damage(2, proj.x):
+                                        self.sounds.play_random("damage", 3)
                             elif proj.impact_frame > 0:
                                 proj.impact_frame -= 1
                                 if proj.impact_frame <= 0:
@@ -1277,6 +1377,7 @@ class Game:
                         self._spawn_particles(proj.x, proj.y, (100, 255, 100), 15)
                     elif proj.rect.colliderect(self.player.rect):
                         if self.player.take_damage(proj.damage, proj.x):
+                            self.sounds.play_random("damage", 3)
                             self.sounds.play("damage")
                             proj.life = 0
                             self._spawn_particles(proj.x, proj.y, (100, 255, 100), 10)
@@ -1290,7 +1391,7 @@ class Game:
                 # Flash de pantalla al golpear
                 if hasattr(self, '_hit_flash') and self._hit_flash > 0:
                     flash_surf = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
-                    flash_surf.fill((255, 0, 0, self._hit_flash * 50))
+                    flash_surf.fill((255, 0, 0, min(255, int(self._hit_flash * 50))))
                     self.screen.blit(flash_surf, (0, 0))
                     self._hit_flash -= 1
 
@@ -1524,7 +1625,7 @@ class Game:
             # Flash blanco al usar super
             if hasattr(self, '_super_flash') and self._super_flash > 0:
                 flash_surf = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
-                flash_surf.fill((255, 255, 255, self._super_flash * 25))
+                flash_surf.fill((255, 255, 255, min(255, int(self._super_flash * 25))))
                 self.screen.blit(flash_surf, (0, 0))
                 self._super_flash -= 1
 
@@ -1586,7 +1687,7 @@ class Game:
             # Flash de pantalla rojo al recibir daño
             if hasattr(self, '_hit_flash') and self._hit_flash > 0:
                 flash_surf = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.SRCALPHA)
-                flash_surf.fill((255, 0, 0, self._hit_flash * 50))
+                flash_surf.fill((255, 0, 0, min(255, int(self._hit_flash * 50))))
                 self.screen.blit(flash_surf, (0, 0))
                 self._hit_flash -= 1
 
@@ -1595,11 +1696,14 @@ class Game:
             hp = self.player.hp if self.player else 0
             mana = self.player.mana if self.player else 0
             combo = self.player.combo_count if self.player else 0
+            music_vol = self.sounds.music_volume
+            sfx_vol = self.sounds.sfx_volume
             self.hud.draw(self.screen, hp, PLAYER_MAX_HP, mana, PLAYER_MAX_MANA,
                           self.player.super_meter if self.player else 0, 100,
                           self.current_wave, self.score, self.game_state,
                           getattr(self, 'continue_timer', 0),
-                          self.best_score, self.best_wave, combo)
+                          self.best_score, self.best_wave, combo,
+                          music_vol, sfx_vol)
 
             # Cinematic Boss UI
             if self.game_state == "boss_intro":

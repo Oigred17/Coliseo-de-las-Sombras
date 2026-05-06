@@ -740,19 +740,14 @@ class Golem(BossBase):
         self.stomp_timer = 0
         self.pillar_cooldown = 0
         self.rolling_cooldown = 0
-        self.garden_cooldown = 0
-        S2 = 3.5  # Escala fija para decoraciones de jardín
-        garden_path = resource_path("Sprites/Esecenarios/Garden Decorations.png")
-        garden_sheet = pygame.image.load(garden_path).convert_alpha()
-        gw, gh = 32, 32
-        self.garden_sprites = []
-        for row in range(3):
-            for col in range(7):
-                x = col * 32
-                y = row * 32
-                if x + gw <= garden_sheet.get_width() and y + gh <= garden_sheet.get_height():
-                    sprite = garden_sheet.subsurface(x, y, gw, gh)
-                    self.garden_sprites.append(pygame.transform.scale(sprite, (int(gw * S2), int(gh * S2))))
+        self.pillar_drop_cooldown = 0
+        
+        # Crear un sprite de pilar de piedra en lugar de decoraciones de jardín
+        self.pillar_sprite = pygame.Surface((30, 100), pygame.SRCALPHA)
+        self.pillar_sprite.fill((100, 100, 100))
+        pygame.draw.rect(self.pillar_sprite, (60, 60, 60), (0, 0, 30, 100), 4)
+        pygame.draw.line(self.pillar_sprite, (80, 80, 80), (10, 0), (10, 100), 2)
+        pygame.draw.line(self.pillar_sprite, (80, 80, 80), (20, 0), (20, 100), 2)
 
     def update(self, player, platforms):
         if self.hp < self.max_hp // 2 and self.phase == 1:
@@ -767,13 +762,13 @@ class Golem(BossBase):
             self.pillar_cooldown -= 1
         if self.meteor_cooldown > 0:
             self.meteor_cooldown -= 1
-        if self.garden_cooldown > 0:
-            self.garden_cooldown -= 1
+        if self.pillar_drop_cooldown > 0:
+            self.pillar_drop_cooldown -= 1
 
         if self.state == "attack" and self.last_state != "attack":
             pool = ["rock_throw", "earthquake", "slam", "rock_throw", "earthquake"]
             if self.phase == 2:
-                pool += ["rolling_charge", "stone_pillar", "ground_slam", "ground_slam", "meteor_shower", "garden_drop"]
+                pool += ["rolling_charge", "stone_pillar", "ground_slam", "ground_slam", "meteor_shower", "pillar_drop"]
             self.current_attack_type = random.choice(pool)
 
         self.last_state = self.state
@@ -795,8 +790,8 @@ class Golem(BossBase):
                 self.special_type = "slam"
             elif self.current_attack_type == "meteor_shower" and frame == 3:
                 self.special_type = "meteor_shower"
-            elif self.current_attack_type == "garden_drop" and frame == 4:
-                self.special_type = "garden_drop"
+            elif self.current_attack_type == "pillar_drop" and frame == 4:
+                self.special_type = "pillar_drop"
             else:
                 self.special_type = None
         else:
