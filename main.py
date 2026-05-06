@@ -1220,6 +1220,14 @@ class Game:
                                 self._spawn_particles(e.x, e.y, (180, 150, 100), 20)
                                 if abs(self.player.x - e.x) < 200: self.player.take_damage(3, e.x)
                                 self.sounds.play("enemy_hit")
+                            elif stype == "jump_crush":
+                                self.camera_shake = 25
+                                self._spawn_particles(e.x, e.y, (180, 150, 100), 50)
+                                for px in range(-200, 201, 50):
+                                    self.particles.append(Particle(e.x + px, e.y, (200, 170, 90), random.uniform(-2, 2), -4, 25, 5))
+                                if abs(self.player.x - e.x) < 250: self.player.take_damage(4, e.x)
+                                self.sounds.play("enemy_hit")
+                                self._rumble(1.0, 20)
                             elif stype == "stone_pillar":
                                 for i in range(-1, 2):
                                     px = self.player.x + i * 60
@@ -1290,6 +1298,15 @@ class Game:
                                     self.enemy_projectiles.append(eb)
                                 self._spawn_particles(e.x, e.y - 60, (200, 255, 255), 15)
                                 self.sounds.play("enemy_hit")
+                            elif stype == "giant_snowball":
+                                vx = 7 if e.facing_right else -7
+                                snowball = EnemyEnergyBall(e.x, e.y - 50, vx, (240, 248, 255))
+                                snowball.radius = 45 # Muy grande
+                                snowball.damage = 4  # Mucho daño
+                                snowball.is_rock = True # Para que use el sistema de colisión simple
+                                self.enemy_projectiles.append(snowball)
+                                self._spawn_particles(e.x, e.y - 50, (255, 255, 255), 25)
+                                self.sounds.play("boss_charging")
                             elif stype == "triple_bolt":
                                 for i in range(-1, 2):
                                     vx = (16 if e.facing_right else -16)

@@ -617,8 +617,8 @@ class BossBase(EnemyBase):
 class FrostGuardian(BossBase):
     """Jefe: Guardián de Escarcha."""
     def __init__(self, x, y):
-        # BUFF: Más HP, más velocidad y más daño
-        super().__init__(x, y, BOSS_HP * 1.5, BOSS_SPEED * 1.4, BOSS_DAMAGE + 1, 
+        # BUFF: Mucha más HP, más velocidad y más daño
+        super().__init__(x, y, BOSS_HP * 3.0, BOSS_SPEED * 1.4, BOSS_DAMAGE + 1, 
                          BOSS_ATTACK_RANGE * 1.2, BOSS_DETECT_RANGE, 3.2)
         S = self.scale
         FW, FH = 192, 128
@@ -674,9 +674,10 @@ class FrostGuardian(BossBase):
             
         # Elegir habilidad solo al iniciar el ataque
         if self.state == "attack" and self.last_state != "attack":
-            pool = ["ice_bolt", "frost_nova", "slash", "ice_bolt", "frost_nova", "ice_shards"]
+            # Pool extendido para Fase 1 con habilidades de Fase 2
+            pool = ["ice_bolt", "frost_nova", "ice_shards", "giant_snowball", "triple_bolt", "ice_rain"]
             if self.phase == 2:
-                pool += ["blizzard_dash", "ice_rain", "ice_rain", "triple_bolt"]
+                pool += ["blizzard_dash", "ice_rain", "triple_bolt", "ice_shards", "giant_snowball"]
             self.current_attack_type = random.choice(pool)
             
         self.last_state = self.state
@@ -701,6 +702,8 @@ class FrostGuardian(BossBase):
                 self.special_type = "ice_shards"
             elif self.current_attack_type == "triple_bolt" and frame == 5:
                 self.special_type = "triple_bolt"
+            elif self.current_attack_type == "giant_snowball" and frame == 6:
+                self.special_type = "giant_snowball"
             else:
                 self.special_type = None
         else:
@@ -726,12 +729,13 @@ class Golem(BossBase):
             "hurt":   load_spritesheet(f"{base}Golem_1_hurt.png", FW, FH, 4, GOLEM_SCALE),
             "death":  load_spritesheet(f"{base}Golem_1_die.png", FW, FH, 13, GOLEM_SCALE),
         }
-        self.width = 40 * GOLEM_SCALE * 0.5
-        self.height = 38 * GOLEM_SCALE * 0.7
+        self.width = 40 * GOLEM_SCALE * 0.8
+        self.height = 38 * GOLEM_SCALE * 1.1
         self.phase = 1
         self.special_cooldown = 0
-        self.current_attack_type = "slam"
+        self.current_attack_type = "jump_crush"
         self.last_state = "idle"
+        self.melee_attack_enabled = False
         self.anim_speed = 0.15  # Velocidad fluida para que se vean bien las animaciones
         self.charge_timer = 0
         self.sprite_faces_left = False
@@ -766,15 +770,25 @@ class Golem(BossBase):
             self.pillar_drop_cooldown -= 1
 
         if self.state == "attack" and self.last_state != "attack":
-            pool = ["rock_throw", "earthquake", "slam", "rock_throw", "earthquake"]
+            pool = ["rock_throw", "earthquake", "jump_crush", "rock_throw", "earthquake"]
             if self.phase == 2:
-                pool += ["rolling_charge", "stone_pillar", "ground_slam", "ground_slam", "meteor_shower", "pillar_drop"]
+                pool += ["rolling_charge", "stone_pillar", "ground_slam", "jump_crush", "meteor_shower", "pillar_drop"]
             self.current_attack_type = random.choice(pool)
+            
+            if self.current_attack_type == "jump_crush":
+                self.vy = -16
+                self.on_ground = False
 
         self.last_state = self.state
         super().update(player, platforms)
         
         if self.state == "attack":
+            if self.current_attack_type == "jump_crush":
+                if not self.on_ground:
+                    dx = player.x - self.x
+                    self.vx = 8 if dx > 0 else -8
+                else:
+                    self.vx = 0
             frame = int(self.frame_index)
             if self.current_attack_type == "earthquake" and frame == 4:
                 self.special_type = "earthquake"
@@ -786,6 +800,8 @@ class Golem(BossBase):
                 self.special_type = "ground_slam"
             elif self.current_attack_type == "rolling_charge" and frame == 1:
                 self.special_type = "rolling_charge"
+            elif self.current_attack_type == "jump_crush" and frame == 5:
+                self.special_type = "jump_crush"
             elif self.current_attack_type == "slam" and frame == 5:
                 self.special_type = "slam"
             elif self.current_attack_type == "meteor_shower" and frame == 3:
